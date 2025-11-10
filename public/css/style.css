@@ -85,7 +85,7 @@ body {
 
 .nav-item.active {
   background: #1a1a1a;
-  color: #fff;
+  color: #d8e9a8;
 }
 
 .nav-item i {
@@ -114,7 +114,7 @@ body {
 }
 
 .add-wallet-btn {
-  background: #fff;
+  background: #4e9f3d;
   color: #000;
   border: none;
   padding: 10px 24px;
@@ -301,6 +301,10 @@ body {
   cursor: pointer;
   align-items: center;
   justify-content: center;
+}
+
+.progress-bar {
+  background-color: #4e9f3d;
 }
 
 @media (max-width: 991px) {
