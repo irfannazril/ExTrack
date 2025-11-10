@@ -66,7 +66,7 @@
               <i class="bi bi-list"></i>
             </button>
             <div class="menu">Dashboard</div>
-            <button class="add-wallet-btn">Add Wallet</button>
+            <button class="add-wallet-btn">Add Transaction</button>
           </div>
 
           <!-- Total Money (Saldo)-->
