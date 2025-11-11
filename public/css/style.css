@@ -307,6 +307,194 @@ body {
   background-color: #4e9f3d;
 }
 
+/* Modal Styles */
+.modal-content {
+  background: #1a1a1a;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding: 20px 25px 10px;
+}
+
+.modal-title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.btn-close {
+  filter: invert(1);
+  opacity: 0.8;
+}
+
+.modal-body {
+  padding: 10px 25px 25px;
+}
+
+/* Transaction Type Tabs */
+.transaction-type-tabs {
+  background: #0a0a0a;
+  border-radius: 30px;
+  padding: 6px;
+  display: flex;
+  margin-bottom: 25px;
+  gap: 8px;
+}
+
+.type-tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #666;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.type-tab.active {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.type-tab:hover:not(.active) {
+  color: #999;
+}
+
+/* Form Styles */
+.form-label {
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-label .required {
+  color: #ef4444;
+  margin-left: 3px;
+}
+
+.form-control,
+.form-select {
+  background: #0a0a0a;
+  border: 1px solid #2a2a2a;
+  color: #fff;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background: #0a0a0a;
+  border-color: #4e9f3d;
+  box-shadow: 0 0 0 3px rgba(78, 159, 61, 0.1);
+  color: #fff;
+}
+
+.form-control::placeholder {
+  color: #555;
+}
+
+.form-select option {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.input-group {
+  position: relative;
+}
+
+/* Add Category Link */
+.add-category-link {
+  color: #4e9f3d;
+  font-size: 13px;
+  text-decoration: none;
+  display: flex;
+  justify-content: right;
+  margin-top: 8px;
+}
+
+.add-category-link:hover {
+  color: #5fb94b;
+}
+
+.add-category-link i {
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+/* Save Button */
+.btn-save {
+  width: 100%;
+  background: #4e9f3d;
+  color: #000;
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background: #e8e8e8;
+  transform: translateY(-1px);
+}
+
+.btn-save:active {
+  transform: translateY(0);
+}
+
+/* Responsive untuk Modal */
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin: 10px;
+  }
+
+  .modal-header {
+    padding: 15px 20px 10px;
+  }
+
+  .modal-body {
+    padding: 10px 20px 20px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+  }
+
+  .transaction-type-tabs {
+    gap: 5px;
+    padding: 5px;
+  }
+
+  .type-tab {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+
+  .form-control,
+  .form-select {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .btn-save {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 991px) {
   body {
     padding: 15px;

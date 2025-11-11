@@ -66,7 +66,7 @@
               <i class="bi bi-list"></i>
             </button>
             <div class="menu">Dashboard</div>
-            <button class="add-wallet-btn">Add Transaction</button>
+            <button class="add-wallet-btn" data-bs-toggle="modal" data-bs-target="#addTransactionModal">Add Transaction</button>
           </div>
 
           <!-- Total Money (Saldo)-->
@@ -167,7 +167,7 @@
               <div class="section-title">Statistics</div>
               <div class="stats-item">
                 <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-cup-straw stats-category"></i>
+                  <span class="stats-category">🍕</span>
                   <span class="stats-name">Food</span>
                 </div>
                 <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -177,7 +177,7 @@
 
               <div class="stats-item">
                 <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-car-front-fill stats-category"></i>
+                  <span class="stats-category">🚗</span>
                   <span class="stats-name">Transport</span>
                 </div>
                 <div class="progress" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
@@ -187,24 +187,13 @@
 
               <div class="stats-item">
                 <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-dice-6-fill stats-category"></i>
+                  <span class="stats-category">🎲</span>
                   <span class="stats-name">Entertainment</span>
                 </div>
                 <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                   <div class="progress-bar" style="width: 75%">75%</div>
                 </div>
               </div>
-
-              <div class="stats-item">
-                <div class="d-flex align-items-center mb-3">
-                  <i class="bi bi-dice-6-fill stats-category"></i>
-                  <span class="stats-name">Entertainment</span>
-                </div>
-                <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar" style="width: 75%">75%</div>
-                </div>
-              </div>
-
 
             </div>
           </div>
@@ -213,43 +202,93 @@
     </div>
   </div>
 
+  <div class="modal fade" id="addTransactionModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Transaction</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Transaction Type Tabs -->
+          <div class="transaction-type-tabs">
+            <button class="type-tab active" data-type="expense">Expense</button>
+            <button class="type-tab" data-type="income">Income</button>
+            <button class="type-tab" data-type="transfer">Transfer</button>
+          </div>
+
+          <form id="transactionForm">
+            <div class="row">
+              <!-- Amount -->
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Amount<span class="required">*</span></label>
+                <div class="input-group">
+                  <input type="number" class="form-control" placeholder="0 IDR" min="1" required>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-control" placeholder="Bought some snacks">
+              </div>
+
+              <!-- Category (for Expense & Income) -->
+              <div class="col-12 mb-3" id="categoryField">
+                <label class="form-label">Category<span class="required">*</span></label>
+                <select class="form-select" required>
+                  <option value="" selected>Select category</option>
+                  <option value="food">🍔 Food</option>
+                  <option value="transport">🚗 Transport</option>
+                  <option value="entertainment">🎮 Entertainment</option>
+                  <option value="shopping">🛍️ Shopping</option>
+                  <option value="bills">📄 Bills</option>
+                  <option value="health">💊 Health</option>
+                  <option value="education">📚 Education</option>
+                  <option value="other">📦 Other</option>
+                </select>
+                <a href="#" class="add-category-link"> Add category
+                </a>
+              </div>
+
+              <!-- From Account (for Transfer) -->
+              <div class="col-md-6 mb-3 d-none" id="fromAccountField">
+                <label class="form-label">From Account<span class="required">*</span></label>
+                <select class="form-select">
+                  <option value="" selected>Select account</option>
+                  <option value="cash">💵 Cash</option>
+                  <option value="bank">🏦 Bank</option>
+                  <option value="ewallet">📱 E-Wallet</option>
+                </select>
+              </div>
+
+              <!-- To Account (for Transfer) -->
+              <div class="col-md-6 mb-3 d-none" id="toAccountField">
+                <label class="form-label">To Account<span class="required">*</span></label>
+                <select class="form-select">
+                  <option value="" selected>Select account</option>
+                  <option value="cash">💵 Cash</option>
+                  <option value="bank">🏦 Bank</option>
+                  <option value="ewallet">📱 E-Wallet</option>
+                </select>
+              </div>
+
+              <!-- Event Date -->
+              <div class="col-12 mb-3">
+                <label class="form-label">Event date</label>
+                <input type="date" class="form-control" id="eventDate">
+              </div>
+            </div>
+
+            <button type="submit" class="btn-save">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const sidebar = document.getElementById('sidebar');
-    const sidebarOverlay = document.getElementById('sidebarOverlay');
-    const closeSidebar = document.getElementById('closeSidebar');
-
-    hamburgerBtn.addEventListener('click', () => {
-      sidebar.classList.add('active');
-      sidebarOverlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-
-    closeSidebar.addEventListener('click', () => {
-      sidebar.classList.remove('active');
-      sidebarOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-
-    sidebarOverlay.addEventListener('click', () => {
-      sidebar.classList.remove('active');
-      sidebarOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-
-    // Close sidebar when clicking nav items on mobile
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-      item.addEventListener('click', () => {
-        if (window.innerWidth <= 991) {
-          sidebar.classList.remove('active');
-          sidebarOverlay.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      });
-    });
-  </script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
