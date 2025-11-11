@@ -29,11 +29,11 @@
               <span class="logo-color">Ex</span>Track
             </div>
 
-            <a href="#" class="nav-item active">
+            <a href="./index.php" class="nav-item">
               <i class="bi bi-grid"></i>
               <span>Dashboard</span>
             </a>
-            <a href="./assets.php" class="nav-item">
+            <a href="./assets.php" class="nav-item active">
               <i class="bi bi-wallet2"></i>
               <span>Assets</span>
             </a>
@@ -69,8 +69,8 @@
             <button class="hamburger-btn" id="hamburgerBtn">
               <i class="bi bi-list"></i>
             </button>
-            <div class="menu">Dashboard</div>
-            <button class="add-wallet-btn" data-bs-toggle="modal" data-bs-target="#addTransactionModal">Add Transaction</button>
+            <div class="menu">Assets</div>
+            <button class="add-wallet-btn" data-bs-toggle="modal" data-bs-target="#addTransactionModal">Add Assets</button>
           </div>
 
           <!-- Total Money (Saldo)-->
