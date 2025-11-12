@@ -154,16 +154,17 @@
             <div class="col-lg-4">
               <div class="section-title">Assets</div>
               <div class="card-balance">
-                <div class="card-label">Cash</div>
-                <div class="card-amount">100.000.000 IDR</div>
+                <div class="card-info">
+                  <div class="card-label">Cash</div>
+                  <div class="card-amount">100.000.000 IDR</div>
+                </div>
               </div>
               <div class="card-balance">
-                <div class="card-label">Bank</div>
-                <div class="card-amount">897.01 EUR</div>
+                <div class="card-info">
+                  <div class="card-label">Bank</div>
+                  <div class="card-amount">100.000.000 IDR</div>
+                </div>
               </div>
-
-
-
             </div>
 
             <!-- Statistics -->

@@ -24,7 +24,7 @@ body {
   background: #1e5128;
   padding: 30px 20px;
   height: 100%;
-  min-height: 750px;
+  max-height: 750px;
   transition: transform 0.3s ease;
 }
 
@@ -147,7 +147,7 @@ body {
 .main-content {
   background: #0a0a0a;
   padding: 30px 40px;
-  min-height: 750px;
+  max-height: 750px;
 }
 
 .header {
@@ -262,6 +262,8 @@ body {
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-label {
@@ -274,6 +276,11 @@ body {
   color: #fff;
   font-size: 20px;
   font-weight: 700;
+}
+
+.card-menu {
+  display: flex;
+  align-items: center;
 }
 
 .stats-item {
@@ -459,6 +466,13 @@ body {
 
 .btn-save:active {
   transform: translateY(0);
+}
+
+/* ASSETS.PHP */
+.asset-scroll {
+  max-height: 500px;
+  min-height: 750px;
+  padding-bottom: 20px;
 }
 
 /* Responsive untuk Modal */
