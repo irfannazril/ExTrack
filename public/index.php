@@ -230,22 +230,22 @@
             <div class="row">
               <!-- Amount -->
               <div class="col-md-6 mb-3">
-                <label class="form-label">Amount<span class="required">*</span></label>
+                <label for="amount" class="form-label">Amount<span class="required">*</span></label>
                 <div class="input-group">
-                  <input type="number" class="form-control" placeholder="0 IDR" min="1" required>
+                  <input type="number" class="form-control" placeholder="0 IDR" min="1" id="amount" required>
                 </div>
               </div>
 
               <!-- Description -->
               <div class="col-md-6 mb-3">
-                <label class="form-label">Description</label>
-                <input type="text" class="form-control" placeholder="Bought some snacks">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control" placeholder="Bought some snacks" id="description">
               </div>
 
               <!-- Category (for Expense & Income) -->
               <div class="col-12 mb-3" id="categoryField">
-                <label class="form-label">Category<span class="required">*</span></label>
-                <select class="form-select" required>
+                <label for="category" class="form-label">Category<span class="required">*</span></label>
+                <select class="form-select" id="category" required>
                   <option value="" selected>Select category</option>
                   <option value="food">🍔 Food</option>
                   <option value="transport">🚗 Transport</option>
@@ -262,8 +262,8 @@
 
               <!-- From Account (for Transfer) -->
               <div class="col-md-6 mb-3 d-none" id="fromAccountField">
-                <label class="form-label">From Account<span class="required">*</span></label>
-                <select class="form-select">
+                <label for="from-account-transfer" class="form-label">From Account<span class="required">*</span></label>
+                <select class="form-select" id="from-account-transfer">
                   <option value="" selected>Select account</option>
                   <option value="cash">💵 Cash</option>
                   <option value="bank">🏦 Bank</option>
@@ -273,8 +273,8 @@
 
               <!-- To Account (for Transfer) -->
               <div class="col-md-6 mb-3 d-none" id="toAccountField">
-                <label class="form-label">To Account<span class="required">*</span></label>
-                <select class="form-select">
+                <label for="to-account-transfer" class="form-label">To Account<span class="required">*</span></label>
+                <select class="form-select" id="to-account-transfer">
                   <option value="" selected>Select account</option>
                   <option value="cash">💵 Cash</option>
                   <option value="bank">🏦 Bank</option>
@@ -284,7 +284,7 @@
 
               <!-- Event Date -->
               <div class="col-12 mb-3">
-                <label class="form-label">Event date</label>
+                <label for="eventDate" class="form-label">Event date</label>
                 <input type="date" class="form-control" id="eventDate">
               </div>
             </div>

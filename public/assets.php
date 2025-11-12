@@ -111,6 +111,72 @@
                   </div>
                 </div>
               </div>
+              <div class="card-balance">
+                <div class="card-info">
+                  <div class="card-label">E-Money</div>
+                  <div class="card-amount">500.000.000 IDR</div>
+                </div>
+                <div class="card-menu">
+                  <div class="transaction-menu">
+                    <i class="bi bi-three-dots-vertical"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card-balance">
+                <div class="card-info">
+                  <div class="card-label">E-Money</div>
+                  <div class="card-amount">500.000.000 IDR</div>
+                </div>
+                <div class="card-menu">
+                  <div class="transaction-menu">
+                    <i class="bi bi-three-dots-vertical"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card-balance">
+                <div class="card-info">
+                  <div class="card-label">E-Money</div>
+                  <div class="card-amount">500.000.000 IDR</div>
+                </div>
+                <div class="card-menu">
+                  <div class="transaction-menu">
+                    <i class="bi bi-three-dots-vertical"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card-balance">
+                <div class="card-info">
+                  <div class="card-label">E-Money</div>
+                  <div class="card-amount">500.000.000 IDR</div>
+                </div>
+                <div class="card-menu">
+                  <div class="transaction-menu">
+                    <i class="bi bi-three-dots-vertical"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card-balance">
+                <div class="card-info">
+                  <div class="card-label">E-Money</div>
+                  <div class="card-amount">500.000.000 IDR</div>
+                </div>
+                <div class="card-menu">
+                  <div class="transaction-menu">
+                    <i class="bi bi-three-dots-vertical"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="card-balance">
+                <div class="card-info">
+                  <div class="card-label">E-Money</div>
+                  <div class="card-amount">500.000.000 IDR</div>
+                </div>
+                <div class="card-menu">
+                  <div class="transaction-menu">
+                    <i class="bi bi-three-dots-vertical"></i>
+                  </div>
+                </div>
+              </div>
 
             </div>
           </div>
@@ -119,8 +185,56 @@
 
       <!-- Stats Display -->
       <div class="col-lg-3">
-      </div>
+        <div class="side-content">
+          <div class="side-content-title">Statistics</div>
 
+          <div class="stats-item">
+            <div class="d-flex align-items-center mb-3">
+              <span class="stats-category">🍕</span>
+              <span class="stats-name">Food</span>
+            </div>
+            <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" style="width: 25%">25%</div>
+            </div>
+          </div>
+          <div class="stats-item">
+            <div class="d-flex align-items-center mb-3">
+              <span class="stats-category">🍕</span>
+              <span class="stats-name">Transport</span>
+            </div>
+            <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" style="width: 75%">75%</div>
+            </div>
+          </div>
+          <div class="stats-item">
+            <div class="d-flex align-items-center mb-3">
+              <span class="stats-category">🍕</span>
+              <span class="stats-name">Entertainment</span>
+            </div>
+            <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" style="width: 50%">50%</div>
+            </div>
+          </div>
+          <div class="stats-item">
+            <div class="d-flex align-items-center mb-3">
+              <span class="stats-category">🍕</span>
+              <span class="stats-name">Food</span>
+            </div>
+            <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" style="width: 80%">80%</div>
+            </div>
+          </div>
+          <div class="stats-item">
+            <div class="d-flex align-items-center mb-3">
+              <span class="stats-category">🍕</span>
+              <span class="stats-name">Food</span>
+            </div>
+            <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" style="width: 60%">60%</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -128,82 +242,19 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Add Transaction</h5>
+          <h5 class="modal-title">Add Asset</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
+
         <div class="modal-body">
-
           <form id="transactionForm">
-            <!-- Transaction Type Tabs -->
-            <div class="transaction-type-tabs">
-              <input type="radio" class="type-tab-radio" data-type="expense" name="transaction-type" id="Expense"></input>
-              <label class="type-tab active" for="Expense">Expense</label>
-              <input type="radio" class="type-tab-radio" data-type="income" name="transaction-type" id="Income"></input>
-              <label class="type-tab" for="Income">Income</label>
-              <input type="radio" class="type-tab-radio" data-type="transfer" name="transaction-type" id="Transfer"></input>
-              <label class="type-tab" for="Transfer">Transfer</label>
+            <div class="mb-3">
+              <label for="assetName" class="form-label">Name<span class="required">*</span></label>
+              <input type="text" class="form-control" id="assetName" placeholder="Cash, Bank, E-Money ..." required>
             </div>
-
-            <div class="row">
-              <!-- Amount -->
-              <div class="col-md-6 mb-3">
-                <label class="form-label">Amount<span class="required">*</span></label>
-                <div class="input-group">
-                  <input type="number" class="form-control" placeholder="0 IDR" min="1" required>
-                </div>
-              </div>
-
-              <!-- Description -->
-              <div class="col-md-6 mb-3">
-                <label class="form-label">Description</label>
-                <input type="text" class="form-control" placeholder="Bought some snacks">
-              </div>
-
-              <!-- Category (for Expense & Income) -->
-              <div class="col-12 mb-3" id="categoryField">
-                <label class="form-label">Category<span class="required">*</span></label>
-                <select class="form-select" required>
-                  <option value="" selected>Select category</option>
-                  <option value="food">🍔 Food</option>
-                  <option value="transport">🚗 Transport</option>
-                  <option value="entertainment">🎮 Entertainment</option>
-                  <option value="shopping">🛍️ Shopping</option>
-                  <option value="bills">📄 Bills</option>
-                  <option value="health">💊 Health</option>
-                  <option value="education">📚 Education</option>
-                  <option value="other">📦 Other</option>
-                </select>
-                <a href="#" class="add-category-link"> Add category
-                </a>
-              </div>
-
-              <!-- From Account (for Transfer) -->
-              <div class="col-md-6 mb-3 d-none" id="fromAccountField">
-                <label class="form-label">From Account<span class="required">*</span></label>
-                <select class="form-select">
-                  <option value="" selected>Select account</option>
-                  <option value="cash">💵 Cash</option>
-                  <option value="bank">🏦 Bank</option>
-                  <option value="ewallet">📱 E-Wallet</option>
-                </select>
-              </div>
-
-              <!-- To Account (for Transfer) -->
-              <div class="col-md-6 mb-3 d-none" id="toAccountField">
-                <label class="form-label">To Account<span class="required">*</span></label>
-                <select class="form-select">
-                  <option value="" selected>Select account</option>
-                  <option value="cash">💵 Cash</option>
-                  <option value="bank">🏦 Bank</option>
-                  <option value="ewallet">📱 E-Wallet</option>
-                </select>
-              </div>
-
-              <!-- Event Date -->
-              <div class="col-12 mb-3">
-                <label class="form-label">Event date</label>
-                <input type="date" class="form-control" id="eventDate">
-              </div>
+            <div class="mb-3">
+              <label for="assetAmount" class="form-label">Amount<span class="required">*</span></label>
+              <input type="text" class="form-control" id="assetAmount" placeholder="0 IDR" required>
             </div>
 
             <button type="submit" class="btn-save">Save</button>
