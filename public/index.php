@@ -37,7 +37,7 @@
               <i class="bi bi-wallet2"></i>
               <span>Assets</span>
             </a>
-            <a href="#" class="nav-item">
+            <a href="./statistics.php" class="nav-item">
               <i class="bi bi-bar-chart-line-fill"></i>
               <span>Statistics</span>
             </a>
@@ -169,7 +169,7 @@
 
             <!-- Statistics -->
             <div class="col-lg-4">
-              <div class="section-title">Statistics</div>
+              <div class="section-title">Top Expense</div>
               <div class="stats-item">
                 <div class="d-flex align-items-center mb-3">
                   <span class="stats-category">🍕</span>
