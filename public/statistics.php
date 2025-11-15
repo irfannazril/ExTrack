@@ -110,12 +110,12 @@
         <div class="modal-body">
           <form id="transactionForm">
             <div class="mb-3">
-              <label for="assetName" class="form-label">Name<span class="required">*</span></label>
-              <input type="text" class="form-control" id="assetName" placeholder="Cash, Bank, E-Money ..." required>
+              <label for="category-icon" class="form-label">Icon<span class="required">*</span></label>
+              <input type="text" class="form-control" id="category-icon" placeholder="Choose an emoji" required>
             </div>
             <div class="mb-3">
-              <label for="assetAmount" class="form-label">Amount<span class="required">*</span></label>
-              <input type="text" class="form-control" id="assetAmount" placeholder="0 IDR" required>
+              <label for="category-name" class="form-label">Name<span class="required">*</span></label>
+              <input type="text" class="form-control" id="category-name" placeholder="e.g. Food, Entertainment, Transport" required>
             </div>
 
             <button type="submit" class="btn-save">Save</button>
