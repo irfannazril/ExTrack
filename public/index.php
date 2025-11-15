@@ -33,6 +33,10 @@
               <i class="bi bi-grid"></i>
               <span>Dashboard</span>
             </a>
+            <a href="./transaction.php" class="nav-item">
+              <i class="bi bi-cash-stack"></i>
+              <span>Transactions</span>
+            </a>
             <a href="./assets.php" class="nav-item">
               <i class="bi bi-wallet2"></i>
               <span>Assets</span>

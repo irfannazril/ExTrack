@@ -2,7 +2,7 @@
 <script>
   // Data retrieved from https://netmarketshare.com/
   // Build the chart
-  Highcharts.chart('container', {
+  Highcharts.chart('charts', {
     chart: {
       backgroundColor: '#1a1a1a',
       plotBorderWidth: null,

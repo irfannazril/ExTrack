@@ -33,6 +33,10 @@
               <i class="bi bi-grid"></i>
               <span>Dashboard</span>
             </a>
+            <a href="./transaction.php" class="nav-item">
+              <i class="bi bi-cash-stack"></i>
+              <span>Transactions</span>
+            </a>
             <a href="./assets.php" class="nav-item">
               <i class="bi bi-wallet2"></i>
               <span>Assets</span>
@@ -64,7 +68,7 @@
 
       <!-- Main Content -->
       <div class="col-lg-9">
-        <div class="main-content">
+        <div class="main-content statistic-page">
           <div class="header">
             <button class="hamburger-btn" id="hamburgerBtn">
               <i class="bi bi-list"></i>
@@ -73,10 +77,21 @@
             <button class="add-wallet-btn" data-bs-toggle="modal" data-bs-target="#addTransactionModal">Add Category</button>
           </div>
 
-          <!-- Asset List -->
-          <div class="row mb-4">
+          <!-- Charts -->
+          <div class="chart-scroll overflow-y-auto">
             <div class="section-title">Expenses Statistic</div>
-            <div id="container" style="width:100%; height:400px; padding: 20px;"></div>
+            <div id="charts" class="mb-4" style="width:100%; height:400px; padding: 10px;"></div>
+            <div class="section-title">Category</div>
+            <div class="stats-item">
+              <div class="d-flex align-items-center mb-3">
+                <span class="stats-category">🍕</span>
+                <span class="stats-name">Food</span>
+              </div>
+              <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 25%">25%</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -88,7 +103,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Add Asset</h5>
+          <h5 class="modal-title">Add Category</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 

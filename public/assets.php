@@ -33,6 +33,10 @@
               <i class="bi bi-grid"></i>
               <span>Dashboard</span>
             </a>
+            <a href="./transaction.php" class="nav-item">
+              <i class="bi bi-cash-stack"></i>
+              <span>Transactions</span>
+            </a>
             <a href="./assets.php" class="nav-item active">
               <i class="bi bi-wallet2"></i>
               <span>Assets</span>
@@ -74,110 +78,107 @@
           </div>
 
           <!-- Asset List -->
-          <div class="row mb-4">
-            <div class="section-title">Assets List</div>
+          <div class="section-title">Assets List</div>
 
-            <div class="asset-scroll overflow-y-auto">
-              <div class="card-balance">
-                <div class="card-info">
-                  <div class="card-label">Cash</div>
-                  <div class="card-amount">100.000.000 IDR</div>
-                </div>
-                <div class="card-menu">
-                  <div class="transaction-menu">
-                    <i class="bi bi-three-dots-vertical"></i>
-                  </div>
+          <div class="asset-scroll overflow-y-scroll">
+            <div class="card-balance">
+              <div class="card-info">
+                <div class="card-label">Cash</div>
+                <div class="card-amount">100.000.000 IDR</div>
+              </div>
+              <div class="card-menu">
+                <div class="transaction-menu">
+                  <i class="bi bi-three-dots-vertical"></i>
                 </div>
               </div>
-              <div class="card-balance">
-                <div class="card-info">
-                  <div class="card-label">bank</div>
-                  <div class="card-amount">300.000.000 IDR</div>
-                </div>
-                <div class="card-menu">
-                  <div class="transaction-menu">
-                    <i class="bi bi-three-dots-vertical"></i>
-                  </div>
+            </div>
+            <div class="card-balance">
+              <div class="card-info">
+                <div class="card-label">bank</div>
+                <div class="card-amount">300.000.000 IDR</div>
+              </div>
+              <div class="card-menu">
+                <div class="transaction-menu">
+                  <i class="bi bi-three-dots-vertical"></i>
                 </div>
               </div>
-              <div class="card-balance">
-                <div class="card-info">
-                  <div class="card-label">E-Money</div>
-                  <div class="card-amount">500.000.000 IDR</div>
-                </div>
-                <div class="card-menu">
-                  <div class="transaction-menu">
-                    <i class="bi bi-three-dots-vertical"></i>
-                  </div>
+            </div>
+            <div class="card-balance">
+              <div class="card-info">
+                <div class="card-label">E-Money</div>
+                <div class="card-amount">500.000.000 IDR</div>
+              </div>
+              <div class="card-menu">
+                <div class="transaction-menu">
+                  <i class="bi bi-three-dots-vertical"></i>
                 </div>
               </div>
-              <div class="card-balance">
-                <div class="card-info">
-                  <div class="card-label">E-Money</div>
-                  <div class="card-amount">500.000.000 IDR</div>
-                </div>
-                <div class="card-menu">
-                  <div class="transaction-menu">
-                    <i class="bi bi-three-dots-vertical"></i>
-                  </div>
+            </div>
+            <div class="card-balance">
+              <div class="card-info">
+                <div class="card-label">E-Money</div>
+                <div class="card-amount">500.000.000 IDR</div>
+              </div>
+              <div class="card-menu">
+                <div class="transaction-menu">
+                  <i class="bi bi-three-dots-vertical"></i>
                 </div>
               </div>
-              <div class="card-balance">
-                <div class="card-info">
-                  <div class="card-label">E-Money</div>
-                  <div class="card-amount">500.000.000 IDR</div>
-                </div>
-                <div class="card-menu">
-                  <div class="transaction-menu">
-                    <i class="bi bi-three-dots-vertical"></i>
-                  </div>
+            </div>
+            <div class="card-balance">
+              <div class="card-info">
+                <div class="card-label">E-Money</div>
+                <div class="card-amount">500.000.000 IDR</div>
+              </div>
+              <div class="card-menu">
+                <div class="transaction-menu">
+                  <i class="bi bi-three-dots-vertical"></i>
                 </div>
               </div>
-              <div class="card-balance">
-                <div class="card-info">
-                  <div class="card-label">E-Money</div>
-                  <div class="card-amount">500.000.000 IDR</div>
-                </div>
-                <div class="card-menu">
-                  <div class="transaction-menu">
-                    <i class="bi bi-three-dots-vertical"></i>
-                  </div>
+            </div>
+            <div class="card-balance">
+              <div class="card-info">
+                <div class="card-label">E-Money</div>
+                <div class="card-amount">500.000.000 IDR</div>
+              </div>
+              <div class="card-menu">
+                <div class="transaction-menu">
+                  <i class="bi bi-three-dots-vertical"></i>
                 </div>
               </div>
-              <div class="card-balance">
-                <div class="card-info">
-                  <div class="card-label">E-Money</div>
-                  <div class="card-amount">500.000.000 IDR</div>
-                </div>
-                <div class="card-menu">
-                  <div class="transaction-menu">
-                    <i class="bi bi-three-dots-vertical"></i>
-                  </div>
+            </div>
+            <div class="card-balance">
+              <div class="card-info">
+                <div class="card-label">E-Money</div>
+                <div class="card-amount">500.000.000 IDR</div>
+              </div>
+              <div class="card-menu">
+                <div class="transaction-menu">
+                  <i class="bi bi-three-dots-vertical"></i>
                 </div>
               </div>
-              <div class="card-balance">
-                <div class="card-info">
-                  <div class="card-label">E-Money</div>
-                  <div class="card-amount">500.000.000 IDR</div>
-                </div>
-                <div class="card-menu">
-                  <div class="transaction-menu">
-                    <i class="bi bi-three-dots-vertical"></i>
-                  </div>
+            </div>
+            <div class="card-balance">
+              <div class="card-info">
+                <div class="card-label">E-Money</div>
+                <div class="card-amount">500.000.000 IDR</div>
+              </div>
+              <div class="card-menu">
+                <div class="transaction-menu">
+                  <i class="bi bi-three-dots-vertical"></i>
                 </div>
               </div>
-              <div class="card-balance">
-                <div class="card-info">
-                  <div class="card-label">E-Money</div>
-                  <div class="card-amount">500.000.000 IDR</div>
-                </div>
-                <div class="card-menu">
-                  <div class="transaction-menu">
-                    <i class="bi bi-three-dots-vertical"></i>
-                  </div>
+            </div>
+            <div class="card-balance">
+              <div class="card-info">
+                <div class="card-label">E-Money</div>
+                <div class="card-amount">1.000.000 IDR</div>
+              </div>
+              <div class="card-menu">
+                <div class="transaction-menu">
+                  <i class="bi bi-three-dots-vertical"></i>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
