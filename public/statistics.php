@@ -82,13 +82,64 @@
             <div class="section-title">Expenses Statistic</div>
             <div id="charts" class="mb-4" style="width:100%; height:400px; padding: 10px;"></div>
             <div class="section-title">Category</div>
-            <div class="stats-item">
-              <div class="d-flex align-items-center mb-3">
+            <div class="stats-item2">
+              <div class="d-flex align-items-center">
                 <span class="stats-category">🍕</span>
                 <span class="stats-name">Food</span>
               </div>
-              <div class="progress" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <div class="progress-bar" style="width: 25%">25%</div>
+              <div class="stats-actions">
+                <button class="btn-edit" onclick="editCategory('Food', '🍕')">Edit</button>
+                <button class="btn-delete" onclick="deleteCategory('Food')">Delete</button>
+              </div>
+            </div>
+            <div class="stats-item2">
+              <div class="d-flex align-items-center">
+                <span class="stats-category">🍕</span>
+                <span class="stats-name">Food</span>
+              </div>
+              <div class="stats-actions">
+                <button class="btn-edit" onclick="editCategory('Food', '🍕')">Edit</button>
+                <button class="btn-delete" onclick="deleteCategory('Food')">Delete</button>
+              </div>
+            </div>
+            <div class="stats-item2">
+              <div class="d-flex align-items-center">
+                <span class="stats-category">🍕</span>
+                <span class="stats-name">Food</span>
+              </div>
+              <div class="stats-actions">
+                <button class="btn-edit" onclick="editCategory('Food', '🍕')">Edit</button>
+                <button class="btn-delete" onclick="deleteCategory('Food')">Delete</button>
+              </div>
+            </div>
+            <div class="stats-item2">
+              <div class="d-flex align-items-center">
+                <span class="stats-category">🍕</span>
+                <span class="stats-name">Food</span>
+              </div>
+              <div class="stats-actions">
+                <button class="btn-edit" onclick="editCategory('Food', '🍕')">Edit</button>
+                <button class="btn-delete" onclick="deleteCategory('Food')">Delete</button>
+              </div>
+            </div>
+            <div class="stats-item2">
+              <div class="d-flex align-items-center">
+                <span class="stats-category">🍕</span>
+                <span class="stats-name">Food</span>
+              </div>
+              <div class="stats-actions">
+                <button class="btn-edit" onclick="editCategory('Food', '🍕')">Edit</button>
+                <button class="btn-delete" onclick="deleteCategory('Food')">Delete</button>
+              </div>
+            </div>
+            <div class="stats-item2">
+              <div class="d-flex align-items-center">
+                <span class="stats-category">🍕</span>
+                <span class="stats-name">Transport</span>
+              </div>
+              <div class="stats-actions">
+                <button class="btn-edit" onclick="editCategory('Food', '🍕')">Edit</button>
+                <button class="btn-delete" onclick="deleteCategory('Food')">Delete</button>
               </div>
             </div>
 
@@ -99,6 +150,7 @@
     </div>
   </div>
 
+  <!-- Add Category -->
   <div class="modal fade" id="addTransactionModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -110,15 +162,42 @@
         <div class="modal-body">
           <form id="transactionForm">
             <div class="mb-3">
-              <label for="category-icon" class="form-label">Icon<span class="required">*</span></label>
-              <input type="text" class="form-control" id="category-icon" placeholder="Choose an emoji" required>
+              <label for="addCategoryIcon" class="form-label">Icon<span class="required">*</span></label>
+              <input type="text" class="form-control" id="addCategoryIcon" placeholder="Choose an emoji" required>
             </div>
             <div class="mb-3">
-              <label for="category-name" class="form-label">Name<span class="required">*</span></label>
-              <input type="text" class="form-control" id="category-name" placeholder="e.g. Food, Entertainment, Transport" required>
+              <label for="addCategoryName" class="form-label">Name<span class="required">*</span></label>
+              <input type="text" class="form-control" id="addCategoryName" placeholder="e.g., Food, Transport, etc." required>
             </div>
 
             <button type="submit" class="btn-save">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Category Modal -->
+  <div class="modal fade" id="editCategoryModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+          <form id="editCategoryForm">
+            <div class="mb-3">
+              <label for="editCategoryIcon" class="form-label">Icon (Emoji)<span class="required">*</span></label>
+              <input type="text" class="form-control" id="editCategoryIcon" placeholder="Choose an emoji" maxlength="1" required>
+            </div>
+            <div class="mb-3">
+              <label for="editCategoryName" class="form-label">Category Name<span class="required">*</span></label>
+              <input type="text" class="form-control" id="editCategoryName" placeholder="e.g., Food, Transport, etc." required>
+            </div>
+
+            <button type="submit" class="btn-save">Update</button>
           </form>
         </div>
       </div>

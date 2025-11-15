@@ -310,6 +310,16 @@ body {
   justify-content: space;
 }
 
+.stats-item2 {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .stats-category {
   width: 40px;
   height: 40px;
@@ -330,6 +340,39 @@ body {
 
 .progress-bar {
   background-color: #4e9f3d;
+}
+
+.stats-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+  background: transparent;
+  border: 1px solid #4e9f3d;
+  color: #4e9f3d;
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.btn-edit:hover {
+  background: #4e9f3d;
+  color: #000;
+}
+
+.btn-delete {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.btn-delete:hover {
+  background: #ef4444;
+  color: #fff;
 }
 
 /* Modal Styles */
@@ -543,6 +586,16 @@ body {
   .btn-save {
     padding: 12px;
     font-size: 14px;
+  }
+  .stats-actions {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    padding: 5px 12px;
+    font-size: 12px;
   }
 }
 

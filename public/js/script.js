@@ -72,3 +72,48 @@ if (dateField) {
   const today = new Date().toISOString().split('T')[0];
   dateField.value = today;
 }
+
+// Edit Category Function
+function editCategory(name, icon) {
+  const editModal = new bootstrap.Modal(document.getElementById('editCategoryModal'));
+  document.getElementById('editCategoryName').value = name;
+  document.getElementById('editCategoryIcon').value = icon;
+  editModal.show();
+}
+
+// Delete Category Function
+function deleteCategory(name) {
+  if (confirm(`Are you sure you want to delete "${name}" category?`)) {
+    alert(`Category "${name}" deleted successfully!`);
+    // Add your delete logic here
+  }
+}
+
+// Add Category Form Submit
+document.getElementById('addCategoryForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('categoryName').value;
+  const icon = document.getElementById('categoryIcon').value;
+
+  alert(`Category "${name}" with icon "${icon}" added successfully!`);
+
+  // Reset form
+  e.target.reset();
+
+  // Close modal
+  const modal = bootstrap.Modal.getInstance(document.getElementById('addCategoryModal'));
+  modal.hide();
+});
+
+// Edit Category Form Submit
+document.getElementById('editCategoryForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('editCategoryName').value;
+  const icon = document.getElementById('editCategoryIcon').value;
+
+  alert(`Category updated to "${name}" with icon "${icon}"!`);
+
+  // Close modal
+  const modal = bootstrap.Modal.getInstance(document.getElementById('editCategoryModal'));
+  modal.hide();
+});
