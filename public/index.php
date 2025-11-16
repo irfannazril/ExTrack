@@ -74,7 +74,7 @@
               <i class="bi bi-list"></i>
             </button>
             <div class="menu">Dashboard</div>
-            <button class="add-wallet-btn" data-bs-toggle="modal" data-bs-target="#addTransactionModal">Add Transaction</button>
+            <a href="./transaction.php?action=add" class="add-wallet-btn" style="text-decoration: none;">Add Transaction</a>
           </div>
 
           <!-- Total Money (Saldo)-->
@@ -129,7 +129,7 @@
                     <i class="bi bi-graph-up-arrow"></i>
                   </div>
                   <div>
-                    <div class="transaction-amount">+100.000 IDR</div>
+                    <div class="transaction-amount income">+100.000 IDR</div>
                     <div class="transaction-type">Income</div>
                   </div>
                 </div>
@@ -144,7 +144,7 @@
                     <i class="bi bi-graph-down-arrow"></i>
                   </div>
                   <div>
-                    <div class="transaction-amount">20.000 IDR</div>
+                    <div class="transaction-amount expense">20.000 IDR</div>
                     <div class="transaction-type">Expense</div>
                   </div>
                 </div>

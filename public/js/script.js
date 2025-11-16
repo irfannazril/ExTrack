@@ -26,6 +26,22 @@ if (sidebarOverlay) {
   });
 }
 
+// Add Transaction Button (index.php)
+document.addEventListener('DOMContentLoaded', function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const action = urlParams.get('action');
+
+  if (action === 'add') {
+    // Buka modal
+    const addTransactionModal = new bootstrap.Modal(document.getElementById('addTransactionModal'));
+    addTransactionModal.show();
+
+    // Hapus parameter dari URL setelah modal dibuka (agar URL bersih)
+    // Ini optional, bisa dihapus jika ingin parameter tetap ada
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+});
+
 //Transaction type tab
 const typeRadios = document.querySelectorAll('.type-tab-radio');
 const typeLabels = document.querySelectorAll('.type-tab');
