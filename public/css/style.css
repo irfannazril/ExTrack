@@ -494,9 +494,9 @@ body {
   color: #555;
 }
 
-.form-control:valid {
+/* .form-control:valid {
   border-color: #4e9f3d;
-}
+} */
 
 .form-select option {
   background: #1a1a1a;

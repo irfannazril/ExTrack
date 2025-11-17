@@ -177,36 +177,38 @@
         </div>
 
         <div class="modal-body">
-          <form id="transactionForm">
+          <form id="addTransactionForm">
             <!-- Transaction Type Tabs -->
             <div class="transaction-type-tabs">
-              <input type="radio" class="type-tab-radio" data-type="expense" name="transaction-type" id="Expense" checked></input>
-              <label class="type-tab active" for="Expense">Expense</label>
-              <input type="radio" class="type-tab-radio" data-type="income" name="transaction-type" id="Income"></input>
-              <label class="type-tab" for="Income">Income</label>
-              <input type="radio" class="type-tab-radio" data-type="transfer" name="transaction-type" id="Transfer"></input>
-              <label class="type-tab" for="Transfer">Transfer</label>
+              <input type="radio" class="type-tab-radio" data-type="expense" name="transaction-type-add" id="addExpense" checked>
+              <label class="type-tab active" for="addExpense">Expense</label>
+
+              <input type="radio" class="type-tab-radio" data-type="income" name="transaction-type-add" id="addIncome">
+              <label class="type-tab" for="addIncome">Income</label>
+
+              <input type="radio" class="type-tab-radio" data-type="transfer" name="transaction-type-add" id="addTransfer">
+              <label class="type-tab" for="addTransfer">Transfer</label>
             </div>
 
             <div class="row">
               <!-- Amount -->
               <div class="col-md-6 mb-3">
-                <label for="amount" class="form-label">Amount<span class="required">*</span></label>
+                <label for="addAmount" class="form-label">Amount<span class="required">*</span></label>
                 <div class="input-group">
-                  <input type="number" class="form-control" placeholder="0 IDR" min="1" id="amount" required>
+                  <input type="number" class="form-control" placeholder="0 IDR" min="1" id="addAmount" required>
                 </div>
               </div>
 
               <!-- Description -->
               <div class="col-md-6 mb-3">
-                <label for="description" class="form-label">Description</label>
-                <input type="text" class="form-control" placeholder="Bought some snacks" id="description">
+                <label for="addDescription" class="form-label">Description</label>
+                <input type="text" class="form-control" placeholder="Bought some snacks" id="addDescription">
               </div>
 
               <!-- Category (for Expense & Income) -->
-              <div class="col-12 mb-3" id="categoryField">
-                <label for="category" class="form-label">Category<span class="required">*</span></label>
-                <select class="form-select" id="category" required>
+              <div class="col-12 mb-3" id="addCategoryField">
+                <label for="addCategory" class="form-label">Category<span class="required">*</span></label>
+                <select class="form-select" id="addCategory" required>
                   <option value="" selected>Select category</option>
                   <option value="food">🍔 Food</option>
                   <option value="transport">🚗 Transport</option>
@@ -217,14 +219,13 @@
                   <option value="education">📚 Education</option>
                   <option value="other">📦 Other</option>
                 </select>
-                <a href="#" class="add-category-link"> Add category
-                </a>
+                <a href="#" class="add-category-link"> Add category</a>
               </div>
 
               <!-- From Account (for Transfer) -->
-              <div class="col-md-6 mb-3 d-none" id="fromAccountField">
-                <label for="from-account-transfer" class="form-label">From Account<span class="required">*</span></label>
-                <select class="form-select" id="from-account-transfer">
+              <div class="col-md-6 mb-3 d-none" id="addFromAccountField">
+                <label for="addFromAccountTransfer" class="form-label">From Account<span class="required">*</span></label>
+                <select class="form-select" id="addFromAccountTransfer">
                   <option value="" selected>Select account</option>
                   <option value="cash">💵 Cash</option>
                   <option value="bank">🏦 Bank</option>
@@ -233,9 +234,9 @@
               </div>
 
               <!-- To Account (for Transfer) -->
-              <div class="col-md-6 mb-3 d-none" id="toAccountField">
-                <label for="to-account-transfer" class="form-label">To Account<span class="required">*</span></label>
-                <select class="form-select" id="to-account-transfer">
+              <div class="col-md-6 mb-3 d-none" id="addToAccountField">
+                <label for="addToAccountTransfer" class="form-label">To Account<span class="required">*</span></label>
+                <select class="form-select" id="addToAccountTransfer">
                   <option value="" selected>Select account</option>
                   <option value="cash">💵 Cash</option>
                   <option value="bank">🏦 Bank</option>
@@ -245,8 +246,8 @@
 
               <!-- Event Date -->
               <div class="col-12 mb-3">
-                <label for="eventDate" class="form-label">Event date</label>
-                <input type="date" class="form-control" id="eventDate">
+                <label for="addEventDate" class="form-label">Event date</label>
+                <input type="date" class="form-control" id="addEventDate">
               </div>
             </div>
 
@@ -258,45 +259,47 @@
   </div>
 
   <!-- Edit Transaction -->
-  <div class="modal fade" id="addTransactionModal" tabindex="-1">
+  <div class="modal fade" id="editTransactionModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Add Transaction</h5>
+          <h5 class="modal-title">Edit Transaction</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
         <div class="modal-body">
-          <form id="transactionForm">
+          <form id="editTransactionForm">
             <!-- Transaction Type Tabs -->
             <div class="transaction-type-tabs">
-              <input type="radio" class="type-tab-radio" data-type="expense" name="transaction-type" id="Expense" checked></input>
-              <label class="type-tab active" for="Expense">Expense</label>
-              <input type="radio" class="type-tab-radio" data-type="income" name="transaction-type" id="Income"></input>
-              <label class="type-tab" for="Income">Income</label>
-              <input type="radio" class="type-tab-radio" data-type="transfer" name="transaction-type" id="Transfer"></input>
-              <label class="type-tab" for="Transfer">Transfer</label>
+              <input type="radio" class="type-tab-radio" data-type="expense" name="transaction-type-edit" id="editExpense" checked>
+              <label class="type-tab active" for="editExpense">Expense</label>
+
+              <input type="radio" class="type-tab-radio" data-type="income" name="transaction-type-edit" id="editIncome">
+              <label class="type-tab" for="editIncome">Income</label>
+
+              <input type="radio" class="type-tab-radio" data-type="transfer" name="transaction-type-edit" id="editTransfer">
+              <label class="type-tab" for="editTransfer">Transfer</label>
             </div>
 
             <div class="row">
               <!-- Amount -->
               <div class="col-md-6 mb-3">
-                <label for="amount" class="form-label">Amount<span class="required">*</span></label>
+                <label for="editAmount" class="form-label">Amount<span class="required">*</span></label>
                 <div class="input-group">
-                  <input type="number" class="form-control" placeholder="0 IDR" min="1" id="amount" required>
+                  <input type="number" class="form-control" placeholder="0 IDR" min="1" id="editAmount" required>
                 </div>
               </div>
 
               <!-- Description -->
               <div class="col-md-6 mb-3">
-                <label for="description" class="form-label">Description</label>
-                <input type="text" class="form-control" placeholder="Bought some snacks" id="description">
+                <label for="editDescription" class="form-label">Description</label>
+                <input type="text" class="form-control" placeholder="Bought some snacks" id="editDescription">
               </div>
 
               <!-- Category (for Expense & Income) -->
-              <div class="col-12 mb-3" id="categoryField">
-                <label for="category" class="form-label">Category<span class="required">*</span></label>
-                <select class="form-select" id="category" required>
+              <div class="col-12 mb-3" id="editCategoryField">
+                <label for="editCategory" class="form-label">Category<span class="required">*</span></label>
+                <select class="form-select" id="editCategory" required>
                   <option value="" selected>Select category</option>
                   <option value="food">🍔 Food</option>
                   <option value="transport">🚗 Transport</option>
@@ -307,14 +310,13 @@
                   <option value="education">📚 Education</option>
                   <option value="other">📦 Other</option>
                 </select>
-                <a href="#" class="add-category-link"> Add category
-                </a>
+                <a href="#" class="add-category-link"> Add category</a>
               </div>
 
               <!-- From Account (for Transfer) -->
-              <div class="col-md-6 mb-3 d-none" id="fromAccountField">
-                <label for="from-account-transfer" class="form-label">From Account<span class="required">*</span></label>
-                <select class="form-select" id="from-account-transfer">
+              <div class="col-md-6 mb-3 d-none" id="editFromAccountField">
+                <label for="editFromAccountTransfer" class="form-label">From Account<span class="required">*</span></label>
+                <select class="form-select" id="editFromAccountTransfer">
                   <option value="" selected>Select account</option>
                   <option value="cash">💵 Cash</option>
                   <option value="bank">🏦 Bank</option>
@@ -323,9 +325,9 @@
               </div>
 
               <!-- To Account (for Transfer) -->
-              <div class="col-md-6 mb-3 d-none" id="toAccountField">
-                <label for="to-account-transfer" class="form-label">To Account<span class="required">*</span></label>
-                <select class="form-select" id="to-account-transfer">
+              <div class="col-md-6 mb-3 d-none" id="editToAccountField">
+                <label for="editToAccountTransfer" class="form-label">To Account<span class="required">*</span></label>
+                <select class="form-select" id="editToAccountTransfer">
                   <option value="" selected>Select account</option>
                   <option value="cash">💵 Cash</option>
                   <option value="bank">🏦 Bank</option>
@@ -335,8 +337,8 @@
 
               <!-- Event Date -->
               <div class="col-12 mb-3">
-                <label for="eventDate" class="form-label">Event date</label>
-                <input type="date" class="form-control" id="eventDate">
+                <label for="editEventDate" class="form-label">Event date</label>
+                <input type="date" class="form-control" id="editEventDate">
               </div>
             </div>
 
