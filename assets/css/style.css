@@ -150,7 +150,10 @@ body {
   background: #0a0a0a;
   padding: 30px 40px;
   max-height: 750px;
-  height: 750px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.5rem;
 }
 
 .side-content {
@@ -494,10 +497,6 @@ body {
   color: #555;
 }
 
-/* .form-control:valid {
-  border-color: #4e9f3d;
-} */
-
 .form-select option {
   background: #1a1a1a;
   color: #fff;
@@ -550,6 +549,31 @@ body {
   transform: translateY(0);
 }
 
+.btn-delete2 {
+  width: 100%;
+  background: transparent;
+  color: #ef4444;
+  border: solid 1px #ef4444;
+  padding: 14px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn-delete2:hover {
+  background: #ef4444;
+  color: #000;
+  border: none;
+  transform: translateY(-1px);
+}
+
+.btn-delete2:active {
+  transform: translateY(0);
+}
+
 /* TRANSACTION.PHP */
 .main-content.transaction-page {
   display: flex;
@@ -593,6 +617,185 @@ body {
 .chart-scroll {
   flex: 1;
   overflow-y: auto;
+}
+
+/* Main Content Scroll */
+.main-content {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1.5rem;
+}
+
+/* Custom Scrollbar */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* For Firefox */
+.main-content {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+}
+
+/* Settings Page Styles */
+.settings-section {
+  margin-bottom: 2rem;
+}
+
+.settings-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.profile-photo-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #4f46e5;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.change-photo-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  background: #4f46e5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 3px solid #1a1a1a;
+  transition: background 0.3s;
+}
+
+.change-photo-btn:hover {
+  background: #6366f1;
+}
+
+.change-photo-btn i {
+  color: white;
+  font-size: 16px;
+}
+
+.profile-form {
+  flex: 1;
+  max-width: 500px;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Danger Zone */
+.danger-zone {
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+.danger-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.danger-item:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.danger-info h6 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.danger-info p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-danger-action {
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #ef4444;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn-danger-action:hover {
+  background: rgba(220, 38, 38, 0.2);
+  border-color: rgba(220, 38, 38, 0.5);
+}
+
+.btn-danger-action-severe {
+  background: #dc2626;
+  border: 1px solid #b91c1c;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn-danger-action-severe:hover {
+  background: #b91c1c;
+  border-color: #991b1b;
 }
 
 /* Responsive untuk Modal */
@@ -710,5 +913,28 @@ body {
   .add-wallet-btn {
     font-size: 12px;
     padding: 8px 16px;
+  }
+}
+
+/* Responsive untuk Settings Page */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-form {
+    width: 100%;
+  }
+
+  .danger-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-danger-action,
+  .btn-danger-action-severe {
+    width: 100%;
   }
 }

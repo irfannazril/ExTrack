@@ -7,7 +7,7 @@
   <title>ExTrack</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 
 </head>
 
@@ -45,7 +45,7 @@
               <i class="bi bi-bar-chart-line-fill"></i>
               <span>Statistics</span>
             </a>
-            <a href="#" class="nav-item">
+            <a href="./settings.php" class="nav-item">
               <i class="bi bi-gear"></i>
               <span>Settings</span>
             </a>
@@ -54,7 +54,7 @@
           <div class="sidebar-bottom">
             <div class="footer-links">
               <a href="#" class="footer-link">
-                <img class="profile" src="../img/profile.jpg"></img>
+                <img class="profile" src="../assets/img/profile.jpg"></img>
                 Profile
               </a>
               <a href="#" class="footer-link">
@@ -206,7 +206,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <?php include '../data/chart.php'; ?>
-  <script src="./js/script.js"></script>
+  <script src="../assets/js/script.js"></script>
 </body>
 
 </html>
