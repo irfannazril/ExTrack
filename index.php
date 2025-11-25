@@ -1,3 +1,18 @@
+<?php
+// ============================================
+// ENTRY POINT - ExTrack
+// ============================================
+
+require_once __DIR__ . '/includes/session.php';
+
+// Jika sudah login, redirect ke dashboard
+if (is_logged_in()) {
+    header('Location: pages/dashboard.php');
+    exit();
+}
+
+// Jika belum login, tampilkan landing page
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +22,7 @@
   <title>ExTrack - Expense Tracker</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="../assets/css/landing.css">
+  <link rel="stylesheet" href="assets/css/landing.css">
 </head>
 
 <body>
@@ -20,8 +35,8 @@
       <div class="nav-links">
         <a href="#features" class="nav-link">Features</a>
         <a href="#about" class="nav-link">About</a>
-        <a href="./login.php" class="btn-login">Login</a>
-        <a href="./register.php" class="btn-register">Get Started</a>
+        <a href="auth/login.php" class="btn-login">Login</a>
+        <a href="auth/register.php" class="btn-register">Get Started</a>
       </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn">
         <i class="bi bi-list"></i>
@@ -33,8 +48,8 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#features" class="mobile-link">Features</a>
     <a href="#about" class="mobile-link">About</a>
-    <a href="./login.php" class="mobile-link">Login</a>
-    <a href="./register.php" class="btn-register-mobile">Get Started</a>
+    <a href="auth/login.php" class="mobile-link">Login</a>
+    <a href="auth/register.php" class="btn-register-mobile">Get Started</a>
   </div>
 
   <!-- Hero Section -->
@@ -51,7 +66,7 @@
             Catat transaksi, pantau aset, dan analisis pola pengeluaran Anda.
           </p>
           <div class="hero-buttons">
-            <a href="./register.php" class="btn-hero-primary">
+            <a href="auth/register.php" class="btn-hero-primary">
               <i class="bi bi-rocket-takeoff me-2"></i>Start Free
             </a>
             <a href="#features" class="btn-hero-secondary">
@@ -203,7 +218,7 @@
       <div class="cta-content">
         <h2 class="cta-title">Ready to Take Control?</h2>
         <p class="cta-description">Bergabunglah dengan ribuan pengguna yang mengelola keuangan mereka dengan ExTrack</p>
-        <a href="./register.php" class="btn-cta">
+        <a href="auth/register.php" class="btn-cta">
           Get Started for Free <i class="bi bi-arrow-right ms-2"></i>
         </a>
       </div>
@@ -241,7 +256,7 @@
     </div>
   </footer>
 
-  <script src="../assets/js/landing.js"></script>
+  <script src="assets/js/landing.js"></script>
 </body>
 
 </html>
