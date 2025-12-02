@@ -76,13 +76,11 @@ $assets = $stmt->fetchAll();
           <?php include __DIR__ . '/../includes/alert.php'; ?>
           
           <!-- Filter Tabs -->
-          <div class="mb-3">
-            <div class="btn-group" role="group">
-              <a href="?filter=all" class="btn btn-sm <?= $filter === 'all' ? 'btn-primary' : 'btn-outline-primary' ?>">All</a>
-              <a href="?filter=income" class="btn btn-sm <?= $filter === 'income' ? 'btn-success' : 'btn-outline-success' ?>">Income</a>
-              <a href="?filter=expense" class="btn btn-sm <?= $filter === 'expense' ? 'btn-danger' : 'btn-outline-danger' ?>">Expense</a>
-              <a href="?filter=transfer" class="btn btn-sm <?= $filter === 'transfer' ? 'btn-info' : 'btn-outline-info' ?>">Transfer</a>
-            </div>
+          <div class="filter-tabs">
+            <a href="?filter=all" class="filter-tab all <?= $filter === 'all' ? 'active' : '' ?>">All</a>
+            <a href="?filter=income" class="filter-tab income <?= $filter === 'income' ? 'active' : '' ?>">Income</a>
+            <a href="?filter=expense" class="filter-tab expense <?= $filter === 'expense' ? 'active' : '' ?>">Expense</a>
+            <a href="?filter=transfer" class="filter-tab transfer <?= $filter === 'transfer' ? 'active' : '' ?>">Transfer</a>
           </div>
 
           <div class="section-title">Transactions List</div>
@@ -151,11 +149,11 @@ $assets = $stmt->fetchAll();
             <input type="hidden" name="type" id="addType" value="expense">
             
             <div class="transaction-type-tabs mb-3">
-              <input type="radio" name="type_tab" id="addExpense" value="expense" checked onchange="switchType('add', 'expense')">
+              <input type="radio" class="type-tab-radio" name="type_tab" id="addExpense" value="expense" checked onchange="switchType('add', 'expense')">
               <label class="type-tab" for="addExpense">Expense</label>
-              <input type="radio" name="type_tab" id="addIncome" value="income" onchange="switchType('add', 'income')">
+              <input type="radio" class="type-tab-radio" name="type_tab" id="addIncome" value="income" onchange="switchType('add', 'income')">
               <label class="type-tab" for="addIncome">Income</label>
-              <input type="radio" name="type_tab" id="addTransfer" value="transfer" onchange="switchType('add', 'transfer')">
+              <input type="radio" class="type-tab-radio" name="type_tab" id="addTransfer" value="transfer" onchange="switchType('add', 'transfer')">
               <label class="type-tab" for="addTransfer">Transfer</label>
             </div>
 
@@ -242,11 +240,11 @@ $assets = $stmt->fetchAll();
             <input type="hidden" name="type" id="editType">
             
             <div class="transaction-type-tabs mb-3">
-              <input type="radio" name="type_tab_edit" id="editExpense" value="expense" onchange="switchType('edit', 'expense')">
+              <input type="radio" class="type-tab-radio" name="type_tab_edit" id="editExpense" value="expense" onchange="switchType('edit', 'expense')">
               <label class="type-tab" for="editExpense">Expense</label>
-              <input type="radio" name="type_tab_edit" id="editIncome" value="income" onchange="switchType('edit', 'income')">
+              <input type="radio" class="type-tab-radio" name="type_tab_edit" id="editIncome" value="income" onchange="switchType('edit', 'income')">
               <label class="type-tab" for="editIncome">Income</label>
-              <input type="radio" name="type_tab_edit" id="editTransfer" value="transfer" onchange="switchType('edit', 'transfer')">
+              <input type="radio" class="type-tab-radio" name="type_tab_edit" id="editTransfer" value="transfer" onchange="switchType('edit', 'transfer')">
               <label class="type-tab" for="editTransfer">Transfer</label>
             </div>
 
@@ -308,8 +306,8 @@ $assets = $stmt->fetchAll();
               </div>
             </div>
             
-            <button type="submit" class="btn-save">Update</button>
-            <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+            <button type="submit" class="btn-save">Update Transaction</button>
+            <button type="button" class="btn-delete2" onclick="confirmDelete()">Delete Transaction</button>
           </form>
           
           <form method="POST" action="../handlers/transaction_handler.php" id="deleteTransactionForm" class="d-none">

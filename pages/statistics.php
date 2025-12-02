@@ -107,15 +107,11 @@ $income_cats = array_filter($categories, fn($c) => $c['category_type'] === 'inco
             <input type="hidden" name="action" value="add">
             <div class="mb-3">
               <label class="form-label">Type<span class="required">*</span></label>
-              <div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="category_type" id="typeExpense" value="expense" checked>
-                  <label class="form-check-label" for="typeExpense">Expense</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="category_type" id="typeIncome" value="income">
-                  <label class="form-check-label" for="typeIncome">Income</label>
-                </div>
+              <div class="transaction-type-tabs" style="margin-bottom: 0;">
+                <input type="radio" class="type-tab-radio" name="category_type" id="typeExpense" value="expense" checked>
+                <label class="type-tab" for="typeExpense">Expense</label>
+                <input type="radio" class="type-tab-radio" name="category_type" id="typeIncome" value="income">
+                <label class="type-tab" for="typeIncome">Income</label>
               </div>
             </div>
             <div class="mb-3">

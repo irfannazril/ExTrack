@@ -139,8 +139,8 @@ $total_expense = array_sum(array_column($top_expenses, 'total'));
               <input type="number" class="form-control" name="balance" id="editAssetBalance" min="0" step="0.01">
               <small class="text-warning">⚠️ Mengubah balance manual akan mengubah saldo tanpa record transaksi</small>
             </div>
-            <button type="submit" class="btn-save">Update</button>
-            <button type="button" class="btn btn-danger" onclick="confirmDeleteAsset()">Delete</button>
+            <button type="submit" class="btn-save">Update Asset</button>
+            <button type="button" class="btn-delete2" onclick="confirmDeleteAsset()">Delete Asset</button>
           </form>
           <form method="POST" action="../handlers/asset_handler.php" id="deleteAssetForm" class="d-none">
             <input type="hidden" name="action" value="delete">
