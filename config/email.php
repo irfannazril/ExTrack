@@ -7,30 +7,32 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/env.php';
 
 // Function untuk kirim verification email
 function send_verification_email($to_email, $username, $verification_token) {
     $mail = new PHPMailer(true);
     
     try {
-        // SMTP Configuration
+        // SMTP Configuration from .env
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = env('MAIL_HOST', 'smtp.gmail.com');
         $mail->SMTPAuth = true;
-        $mail->Username = 'malingpangsitasdf@gmail.com'; // Ganti dengan email Anda
-        $mail->Password = 'thyzktvvgdcjcnla'; // 16 digit App Password
+        $mail->Username = env('MAIL_USERNAME');
+        $mail->Password = env('MAIL_PASSWORD');
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $mail->Port = env('MAIL_PORT', 587);
         
         // Sender & Recipient
-        $mail->setFrom('noreply@extrack.com', 'ExTrack');
+        $mail->setFrom(env('MAIL_FROM_ADDRESS', 'noreply@extrack.com'), env('MAIL_FROM_NAME', 'ExTrack'));
         $mail->addAddress($to_email, $username);
         
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'Verifikasi Email Anda - ExTrack';
         
-        $verification_link = "http://localhost/extrack/auth/verify-email.php?token=" . $verification_token;
+        $app_url = env('APP_URL', 'http://localhost/extrack');
+        $verification_link = "$app_url/auth/verify-email.php?token=" . $verification_token;
         
         $mail->Body = "
             <!DOCTYPE html>
@@ -86,21 +88,23 @@ function send_password_reset_email($to_email, $username, $reset_token) {
     $mail = new PHPMailer(true);
     
     try {
+        // SMTP Configuration from .env
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = env('MAIL_HOST', 'smtp.gmail.com');
         $mail->SMTPAuth = true;
-        $mail->Username = 'malingpangsitasdf@gmail.com';
-        $mail->Password = 'thyzktvvgdcjcnla';
+        $mail->Username = env('MAIL_USERNAME');
+        $mail->Password = env('MAIL_PASSWORD');
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
+        $mail->Port = env('MAIL_PORT', 587);
         
-        $mail->setFrom('noreply@extrack.com', 'ExTrack');
+        $mail->setFrom(env('MAIL_FROM_ADDRESS', 'noreply@extrack.com'), env('MAIL_FROM_NAME', 'ExTrack'));
         $mail->addAddress($to_email, $username);
         
         $mail->isHTML(true);
         $mail->Subject = 'Reset Password - ExTrack';
         
-        $reset_link = "http://localhost/extrack/auth/reset-password.php?token=" . $reset_token;
+        $app_url = env('APP_URL', 'http://localhost/extrack');
+        $reset_link = "$app_url/auth/reset-password.php?token=" . $reset_token;
         
         $mail->Body = "
             <h2>Reset Password</h2>

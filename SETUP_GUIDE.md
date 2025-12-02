@@ -99,20 +99,26 @@ Sebelum mulai, pastikan Anda sudah install:
     - Pilih file `migration_v2.sql`
     - Klik **Go**
 
-### Step 4: Konfigurasi Database Connection
+### Step 4: Konfigurasi Environment (.env)
 
-1. Buka file `config/database.php`
-2. Cek konfigurasi database:
-   ```php
-   $host = 'localhost';
-   $dbname = 'extrack';
-   $username = 'root';
-   $password = '';
+1. Copy file `.env.example` menjadi `.env`:
+   ```bash
+   copy .env.example .env
    ```
 
-3. Jika MySQL Anda pakai password, ubah `$password`:
-   ```php
-   $password = 'your_mysql_password';
+2. Buka file `.env` dengan text editor
+
+3. Sesuaikan konfigurasi database (jika perlu):
+   ```env
+   DB_HOST=localhost
+   DB_NAME=extrack
+   DB_USER=root
+   DB_PASS=
+   ```
+
+4. Jika MySQL Anda pakai password, isi `DB_PASS`:
+   ```env
+   DB_PASS=your_mysql_password
    ```
 
 ### Step 5: Konfigurasi Email (Opsional)
@@ -168,7 +174,17 @@ Jika ingin aktifkan email verification:
 
 3. Jika berhasil, Anda akan diarahkan ke halaman login
 
-4. **Note:** Email verification bersifat opsional. Anda bisa langsung login tanpa verifikasi email.
+4. **Note:** Email verification sekarang **wajib**. Anda harus verify email sebelum bisa login.
+
+5. **Cek email Anda:**
+   - Buka inbox (atau spam folder)
+   - Cari email dari ExTrack
+   - Klik link "Verifikasi Email"
+   
+6. **Jika email tidak masuk:**
+   - Cek spam/junk folder
+   - Klik "Kirim Ulang Email Verifikasi" di halaman login
+   - Pastikan konfigurasi email di `.env` sudah benar
 
 ### Step 9: Login
 

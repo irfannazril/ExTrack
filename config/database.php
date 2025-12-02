@@ -1,9 +1,16 @@
 <?php
-// Konfigurasi database sederhana tanpa OOP
-$host = 'localhost';
-$dbname = 'extrack';
-$username = 'root';
-$password = '';
+// ============================================
+// DATABASE CONNECTION - ExTrack
+// ============================================
+
+// Load environment variables
+require_once __DIR__ . '/env.php';
+
+// Get database config from .env
+$host = env('DB_HOST', 'localhost');
+$dbname = env('DB_NAME', 'extrack');
+$username = env('DB_USER', 'root');
+$password = env('DB_PASS', '');
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);

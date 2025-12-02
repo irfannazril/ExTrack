@@ -3,11 +3,15 @@
 // SESSION MANAGEMENT - ExTrack
 // ============================================
 
+// Load environment variables
+require_once __DIR__ . '/../config/env.php';
+
 // Start session dengan konfigurasi aman
 if (session_status() === PHP_SESSION_NONE) {
-    // Set session lifetime 24 jam
-    ini_set('session.gc_maxlifetime', 86400); // 24 jam dalam detik
-    session_set_cookie_params(86400); // Cookie expire 24 jam
+    // Set session lifetime dari .env
+    $session_lifetime = env('SESSION_LIFETIME', 86400); // Default 24 jam
+    ini_set('session.gc_maxlifetime', $session_lifetime);
+    session_set_cookie_params($session_lifetime);
     
     session_start();
     
@@ -71,8 +75,9 @@ function update_session_data($key, $value) {
 
 // Remember me - Set cookie
 function set_remember_me_cookie($user_id, $token) {
-    // Cookie expire 30 hari
-    $expire = time() + (30 * 24 * 60 * 60);
+    // Cookie expire dari .env (default 30 hari)
+    $remember_days = env('REMEMBER_ME_DAYS', 30);
+    $expire = time() + ($remember_days * 24 * 60 * 60);
     setcookie('remember_me', $user_id . ':' . $token, $expire, '/', '', false, true);
 }
 

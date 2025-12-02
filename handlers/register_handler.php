@@ -89,39 +89,16 @@ try {
     ");
     $stmt->execute([$user_id]);
     
-    // Kirim email verification (opsional, tidak blocking)
-    try {
-        $mail = new PHPMailer(true);
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'malingpangsitasdf@gmail.com';
-        $mail->Password = 'thyzktvvgdcjcnla';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
-        
-        $mail->setFrom('noreply@extrack.com', 'ExTrack');
-        $mail->addAddress($email, $username);
-        $mail->isHTML(true);
-        $mail->Subject = 'Verifikasi Email Anda - ExTrack';
-        
-        $verification_link = "http://localhost/extrack/auth/verify-email.php?token=" . $verification_token;
-        
-        $mail->Body = "
-            <h2>Selamat datang di ExTrack, $username!</h2>
-            <p>Terima kasih telah mendaftar. Silakan verifikasi email Anda dengan klik tombol di bawah:</p>
-            <p><a href='$verification_link' style='background: #4e9f3d; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block;'>Verifikasi Email</a></p>
-            <p>Atau copy link ini: $verification_link</p>
-            <p>Link ini akan kadaluarsa dalam 24 jam.</p>
-        ";
-        
-        $mail->send();
-    } catch (Exception $e) {
-        // Email gagal kirim, tapi registrasi tetap berhasil
-        error_log('Email verification gagal: ' . $e->getMessage());
-    }
+    // Kirim email verification (wajib)
+    $email_result = send_verification_email($email, $username, $verification_token);
     
-    set_flash('success', 'Registrasi berhasil! Silakan login.');
+    if (!$email_result['success']) {
+        // Email gagal kirim, tapi registrasi tetap berhasil
+        error_log('Email verification gagal: ' . $email_result['message']);
+        set_flash('warning', 'Registrasi berhasil! Namun email verifikasi gagal dikirim. Silakan hubungi admin.');
+    } else {
+        set_flash('success', 'Registrasi berhasil! Silakan cek email Anda untuk verifikasi sebelum login.');
+    }
     redirect('../auth/login.php');
     
 } catch (PDOException $e) {

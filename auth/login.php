@@ -101,6 +101,36 @@ $flash = get_flash();
       <div class="auth-footer">
         Don't have an account? <a href="register.php" class="auth-link">Sign Up</a>
       </div>
+      
+      <!-- Resend Verification Link -->
+      <div class="auth-footer mt-2">
+        <small class="text-muted">
+          Email belum diverifikasi? 
+          <a href="#" class="auth-link" data-bs-toggle="modal" data-bs-target="#resendVerificationModal">Kirim Ulang Email Verifikasi</a>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resend Verification Modal -->
+  <div class="modal fade" id="resendVerificationModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Kirim Ulang Email Verifikasi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="../handlers/resend_verification_handler.php">
+            <div class="mb-3">
+              <label for="resendEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="resendEmail" name="email" placeholder="Enter your email" required>
+              <small class="text-muted">Masukkan email yang Anda gunakan saat registrasi</small>
+            </div>
+            <button type="submit" class="btn-save w-100">Kirim Email Verifikasi</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 

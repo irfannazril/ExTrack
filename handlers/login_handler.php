@@ -29,7 +29,7 @@ if (!validate_email($email)) {
 
 try {
     // Cari user berdasarkan email
-    $stmt = $conn->prepare("SELECT user_id, username, email, password, profile_photo FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT user_id, username, email, password, profile_photo, is_verified FROM users WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
     
@@ -41,6 +41,12 @@ try {
     // Verify password
     if (!verify_password($password, $user['password'])) {
         set_flash('error', 'Password salah!');
+        redirect('../auth/login.php');
+    }
+    
+    // Check email verification (wajib)
+    if ($user['is_verified'] == 0) {
+        set_flash('error', 'Email Anda belum diverifikasi! Silakan cek email Anda untuk link verifikasi.');
         redirect('../auth/login.php');
     }
     

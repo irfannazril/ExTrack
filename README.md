@@ -80,20 +80,33 @@ SOURCE C:/xampp/htdocs/extrack/extrack.sql;
 SOURCE C:/xampp/htdocs/extrack/migration_v2.sql;
 ```
 
-### 4. Konfigurasi Email (Opsional)
+### 4. Konfigurasi Environment (.env)
 
-Edit `config/email.php` untuk email verification:
+Copy file `.env.example` menjadi `.env`:
 
-```php
-$this->mailer->Username = 'your-email@gmail.com';
-$this->mailer->Password = 'your-app-password'; // 16 digit App Password
+```bash
+copy .env.example .env
+```
+
+Edit file `.env` dan sesuaikan konfigurasi:
+
+```env
+# Database
+DB_HOST=localhost
+DB_NAME=extrack
+DB_USER=root
+DB_PASS=
+
+# Email (untuk verification)
+MAIL_USERNAME=your-email@gmail.com
+MAIL_PASSWORD=your-app-password
 ```
 
 **Cara mendapatkan App Password Gmail:**
 1. Buka Google Account → Security
 2. Enable 2-Step Verification
 3. Generate App Password
-4. Copy 16 digit password
+4. Copy 16 digit password ke `MAIL_PASSWORD`
 
 ### 5. Jalankan Aplikasi
 
