@@ -268,7 +268,6 @@ body {
 .transaction-item:hover {
   background: #222;
   border-color: #2a2a2a;
-  transform: translateX(4px);
 }
 
 .transaction-left {
@@ -453,7 +452,7 @@ body {
 .progress {
   background: #0a0a0a;
   border-radius: 10px;
-  height: 8px;
+  height: 12px;
   overflow: hidden;
 }
 
@@ -466,7 +465,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000;
+  color: #2a2a2a;
 }
 
 .stats-actions {
@@ -540,6 +539,48 @@ body {
 
 .modal-body {
   padding: 20px 25px 25px;
+}
+
+.modal-footer {
+  border-top: 1px solid #2a2a2a;
+  padding: 15px 25px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-footer .btn.btn-secondary {
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.modal-footer .btn.btn-secondary:hover {
+  background: #3a3a3a;
+  border-color: #4a4a4a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.modal-footer .btn.btn-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.modal-footer .btn.btn-danger:hover {
+  background: #ef4444;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
 /* Transaction Type Tabs */
@@ -1042,8 +1083,8 @@ body {
 }
 
 .filter-tab.transfer.active {
-  background: #3b82f6;
-  color: #fff;
+  background: #d8e9a8;
+  color: #1e5128;
 }
 
 .filter-tab:hover:not(.active) {
