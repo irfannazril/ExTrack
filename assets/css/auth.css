@@ -253,45 +253,6 @@ body {
   color: #5fb94b;
 }
 
-/* Auth Button */
-.btn-auth {
-  width: 100%;
-  padding: 0.875rem;
-  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
-  border: none;
-  border-radius: 12px;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-auth:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
-}
-
-.btn-auth:active {
-  transform: translateY(0);
-}
-
-.btn-auth .btn-loading {
-  display: none;
-}
-
-.btn-auth.loading .btn-text {
-  display: none;
-}
-
-.btn-auth.loading .btn-loading {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* Button Loading State */
 .btn-save {
   width: 100%;
@@ -313,13 +274,8 @@ body {
 }
 
 .btn-save .btn-loading {
-  display: none;
   align-items: center;
   justify-content: center;
-}
-
-.btn-save.loading .btn-text {
-  display: none;
 }
 
 .btn-save.loading .btn-loading {
