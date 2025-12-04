@@ -17,15 +17,15 @@ function send_verification_email($to_email, $username, $verification_token)
     try {
         // SMTP Configuration from .env
         $mail->isSMTP();
-        $mail->Host = env('MAIL_HOST', 'smtp.gmail.com');
+        $mail->Host = env('MAIL_HOST');
         $mail->SMTPAuth = true;
         $mail->Username = env('MAIL_USERNAME');
         $mail->Password = env('MAIL_PASSWORD');
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = env('MAIL_PORT', 587);
+        $mail->Port = env('MAIL_PORT');
 
         // Sender & Recipient
-        $mail->setFrom(env('MAIL_FROM_ADDRESS', 'noreply@extrack.com'), env('MAIL_FROM_NAME', 'ExTrack'));
+        $mail->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
         $mail->addAddress($to_email, $username);
 
         // Content
@@ -91,15 +91,15 @@ function send_password_reset_email($to_email, $username, $reset_token)
     try {
         // SMTP Configuration from .env
         $mail->isSMTP();
-        $mail->Host = env('MAIL_HOST', 'smtp.gmail.com');
+        $mail->Host = env('MAIL_HOST');
         $mail->SMTPAuth = true;
         $mail->Username = env('MAIL_USERNAME');
         $mail->Password = env('MAIL_PASSWORD');
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = env('MAIL_PORT', 587);
+        $mail->Port = env('MAIL_PORT');
 
         // Sender & Recipient
-        $mail->setFrom(env('MAIL_FROM_ADDRESS', 'noreply@extrack.com'), env('MAIL_FROM_NAME', 'ExTrack'));
+        $mail->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
         $mail->addAddress($to_email, $username);
 
         // Content

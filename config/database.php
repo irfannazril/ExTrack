@@ -7,10 +7,10 @@
 require_once __DIR__ . '/env.php';
 
 // Get database config from .env
-$host = env('DB_HOST', 'localhost');
-$dbname = env('DB_NAME', 'extrack');
-$username = env('DB_USERNAME', 'root');
-$password = env('DB_PASSWORD', '');
+$host = env('DB_HOST');
+$dbname = env('DB_NAME');
+$username = env('DB_USERNAME');
+$password = env('DB_PASSWORD');
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);

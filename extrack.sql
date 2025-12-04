@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Des 2025 pada 08.38
+-- Waktu pembuatan: 04 Des 2025 pada 15.40
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -41,8 +41,9 @@ CREATE TABLE `assets` (
 --
 
 INSERT INTO `assets` (`asset_id`, `user_id`, `asset_name`, `balance`, `created_at`, `updated_at`) VALUES
-(9, 7, 'Tunai', 300000.00, '2025-12-02 06:27:35', '2025-12-02 07:16:56'),
-(10, 7, 'Bank', 500000.00, '2025-12-02 07:17:11', '2025-12-02 07:17:11');
+(9, 7, 'Tunai', 211000.00, '2025-12-02 06:27:35', '2025-12-04 14:30:52'),
+(10, 7, 'Bank', 280000.00, '2025-12-02 07:17:11', '2025-12-04 14:28:57'),
+(13, 7, 'E-wallet', 790000.00, '2025-12-04 14:27:56', '2025-12-04 14:30:52');
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,30 @@ INSERT INTO `categories` (`category_id`, `user_id`, `category_name`, `category_t
 (16, 7, 'Lainnya', 'income', '💰', 1, '2025-12-02 06:27:35', '2025-12-02 06:27:35'),
 (17, 7, 'Makanan', 'expense', '🍚', 0, '2025-12-02 07:18:37', '2025-12-02 07:18:37'),
 (18, 7, 'Transportasi', 'expense', '🚗', 0, '2025-12-02 07:18:59', '2025-12-02 07:18:59'),
-(19, 7, 'Jajan', 'expense', '🍿', 0, '2025-12-02 07:19:38', '2025-12-02 07:19:46');
+(19, 7, 'Jajan', 'expense', '🍿', 0, '2025-12-02 07:19:38', '2025-12-02 07:19:46'),
+(24, 7, 'Bonus', 'income', '🪙', 0, '2025-12-04 14:28:14', '2025-12-04 14:28:14');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `token` varchar(100) NOT NULL,
+  `is_used` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `expires_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `password_resets`
+--
+
+INSERT INTO `password_resets` (`id`, `email`, `token`, `is_used`, `created_at`, `expires_at`) VALUES
+(5, 'irfannazrilac@gmail.com', '0ba7826b421276fdf421582fc29d838706173ffa2639f9c9a0b2da23effe69ef', 0, '2025-12-04 14:18:19', '2025-12-04 16:18:19');
 
 -- --------------------------------------------------------
 
@@ -111,6 +135,23 @@ CREATE TABLE `transactions` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `transactions`
+--
+
+INSERT INTO `transactions` (`transaction_id`, `user_id`, `transaction_type`, `amount`, `description`, `category_id`, `asset_id`, `transaction_date`, `to_asset_id`, `from_asset_id`, `created_at`, `updated_at`) VALUES
+(1, 7, 'income', 20000.00, 'Uang saku', 16, 9, '2025-12-02', NULL, NULL, '2025-12-02 08:19:03', '2025-12-02 08:20:50'),
+(2, 7, 'transfer', 20000.00, 'Transfer', NULL, 10, '2025-12-02', 9, 10, '2025-12-02 08:19:39', '2025-12-02 08:19:39'),
+(3, 7, 'expense', 12000.00, 'Ayam Malay', 17, 9, '2025-12-02', NULL, NULL, '2025-12-02 08:21:08', '2025-12-02 08:21:08'),
+(4, 7, 'expense', 52000.00, 'Ganti Oli', 18, 9, '2025-12-02', NULL, NULL, '2025-12-02 08:23:44', '2025-12-02 08:23:44'),
+(5, 7, 'expense', 5000.00, 'Telur Gulung', 19, 9, '2025-12-02', NULL, NULL, '2025-12-02 08:29:16', '2025-12-02 08:29:16'),
+(6, 7, 'expense', 20000.00, 'Nasi Padang', 17, 10, '2025-12-02', NULL, NULL, '2025-12-02 08:31:45', '2025-12-02 08:31:45'),
+(7, 7, 'expense', 100000.00, 'Telur Gulung', 19, 10, '2025-12-04', NULL, NULL, '2025-12-04 14:22:45', '2025-12-04 14:22:45'),
+(8, 7, 'expense', 50000.00, 'Ganti Oli', 18, 10, '2025-12-04', NULL, NULL, '2025-12-04 14:24:49', '2025-12-04 14:24:49'),
+(9, 7, 'transfer', 40000.00, 'Transfer', NULL, 13, '2025-12-04', 10, 13, '2025-12-04 14:28:42', '2025-12-04 14:28:42'),
+(10, 7, 'transfer', 70000.00, 'Transfer', NULL, 10, '2025-12-04', 13, 10, '2025-12-04 14:28:57', '2025-12-04 14:28:57'),
+(11, 7, 'transfer', 60000.00, 'Transfer', NULL, 9, '2025-12-04', 13, 9, '2025-12-04 14:30:52', '2025-12-04 14:30:52');
+
 -- --------------------------------------------------------
 
 --
@@ -136,7 +177,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `is_verified`, `verification_token`, `remember_token`, `token_expires_at`, `password`, `profile_photo`, `created_at`, `updated_at`) VALUES
-(7, 'irfannazril', 'irfannazrilac@gmail.com', 1, NULL, NULL, NULL, '$2y$10$NGB1abB.PItOco1viQ4f/uvk.rowqi.OcVTSuL/nhLaIoatNG14cK', 'profile_7_1764659603.jpg', '2025-12-02 06:27:35', '2025-12-02 07:14:02');
+(7, 'irfannazril', 'irfannazrilac@gmail.com', 1, NULL, NULL, NULL, '$2y$10$ocJCUdjq4pNxZaVR7RqDfuj.dVVll48xCEUsla2F.otkwNQTvuPES', 'profile_7_1764659603.jpg', '2025-12-02 06:27:35', '2025-12-04 14:11:00');
 
 --
 -- Indexes for dumped tables
@@ -155,6 +196,17 @@ ALTER TABLE `assets`
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indeks untuk tabel `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `email` (`email`),
+  ADD KEY `token` (`token`),
+  ADD KEY `expires_at` (`expires_at`),
+  ADD KEY `idx_email_created` (`email`,`created_at`),
+  ADD KEY `idx_token_used` (`token`,`is_used`);
 
 --
 -- Indeks untuk tabel `transactions`
@@ -185,25 +237,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `assets`
 --
 ALTER TABLE `assets`
-  MODIFY `asset_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `asset_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT untuk tabel `password_resets`
+--
+ALTER TABLE `password_resets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
