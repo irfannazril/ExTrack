@@ -43,7 +43,6 @@ body {
   padding: 10px 15px;
   border-radius: 8px;
   cursor: pointer;
-  margin-right: 15px;
 }
 
 .hamburger-btn:hover {
@@ -1410,7 +1409,7 @@ small.text-warning {
 @media (max-width: 425px) {
   .add-wallet-btn {
     padding: 8px 12px;
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .filter-tabs {
