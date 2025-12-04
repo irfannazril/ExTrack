@@ -708,10 +708,6 @@ body {
 }
 
 /* Loading State */
-.btn-loading {
-  display: none;
-}
-
 .spinner-border-sm {
   width: 1rem;
   height: 1rem;

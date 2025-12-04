@@ -93,6 +93,7 @@ $flash = get_flash();
               <i class="bi bi-eye" id="eyeIcon"></i>
             </button>
           </div>
+          <small class="text-muted">Minimal 6 karakter, harus ada minimal 1 angka dan 1 huruf</small>
         </div>
 
         <div class="mb-3">

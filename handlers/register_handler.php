@@ -41,6 +41,18 @@ if (strlen($password) < 6) {
     redirect('../auth/register.php');
 }
 
+// Validasi password harus ada minimal 1 angka
+if (!preg_match('/[0-9]/', $password)) {
+    set_flash('error', 'Password harus mengandung minimal 1 angka!');
+    redirect('../auth/register.php');
+}
+
+// Validasi password harus ada minimal 1 huruf
+if (!preg_match('/[a-zA-Z]/', $password)) {
+    set_flash('error', 'Password harus mengandung minimal 1 huruf!');
+    redirect('../auth/register.php');
+}
+
 try {
     // Cek email sudah terdaftar
     $stmt = $conn->prepare("SELECT user_id FROM users WHERE email = ?");

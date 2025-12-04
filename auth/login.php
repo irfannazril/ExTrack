@@ -88,6 +88,7 @@ $flash = get_flash();
               Remember me
             </label>
           </div>
+          <a href="forgot-password.php" class="forgot-link">Lupa Password?</a>
         </div>
 
         <button type="submit" class="btn-save">
