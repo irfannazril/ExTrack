@@ -32,7 +32,7 @@ function send_verification_email($to_email, $username, $verification_token)
         $mail->isHTML(true);
         $mail->Subject = 'Verifikasi Email Anda - ExTrack';
 
-        $app_url = env('APP_URL', 'https//extrack.namaserver.xyz');
+        $app_url = env('APP_URL');
         $verification_link = "$app_url/auth/verify-email.php?token=" . $verification_token;
 
         $mail->Body = "
@@ -98,13 +98,13 @@ function send_password_reset_email($to_email, $username, $reset_token)
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = env('MAIL_PORT', 587);
 
-        $mail->setFrom(env('MAIL_FROM_ADDRESS', 'noreply@extrack.com'), env('MAIL_FROM_NAME', 'ExTrack'));
+        $mail->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
         $mail->addAddress($to_email, $username);
 
         $mail->isHTML(true);
         $mail->Subject = 'Reset Password - ExTrack';
 
-        $app_url = env('APP_URL', 'http://localhost/extrack');
+        $app_url = env('APP_URL');
         $reset_link = "$app_url/auth/reset-password.php?token=" . $reset_token;
 
         $mail->Body = "
