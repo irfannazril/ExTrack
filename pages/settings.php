@@ -8,6 +8,7 @@ $user_data = $stmt->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +17,7 @@ $user_data = $stmt->fetch();
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body>
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
   <div class="dashboard-container">
@@ -27,11 +29,13 @@ $user_data = $stmt->fetch();
         <div class="main-content">
           <div class="header">
             <button class="hamburger-btn" id="hamburgerBtn"><i class="bi bi-list"></i></button>
-            <div class="menu">Settings</div>
+            <div class="header-settings">
+              <div class="menu">Settings</div>
+            </div>
           </div>
-          
+
           <?php include __DIR__ . '/../includes/alert.php'; ?>
-          
+
           <!-- Profile Section -->
           <div class="settings-section">
             <div class="section-title">Profile Settings</div>
@@ -49,7 +53,7 @@ $user_data = $stmt->fetch();
                 <form method="POST" action="../handlers/settings_handler.php" enctype="multipart/form-data" class="profile-form">
                   <input type="hidden" name="action" value="update_profile">
                   <input type="file" id="profilePhotoInput" name="profile_photo" accept="image/*" style="display: none;" onchange="previewPhoto(this)">
-                  
+
                   <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" id="username" name="username" value="<?= htmlspecialchars($user_data['username']) ?>" required>
@@ -178,7 +182,7 @@ $user_data = $stmt->fetch();
         reader.readAsDataURL(input.files[0]);
       }
     }
-    
+
     function confirmDangerAction(action, message) {
       if (confirm(message + '\n\nKetik DELETE untuk konfirmasi:')) {
         const confirmation = prompt('Ketik DELETE untuk konfirmasi:');
@@ -192,4 +196,5 @@ $user_data = $stmt->fetch();
     }
   </script>
 </body>
+
 </html>
