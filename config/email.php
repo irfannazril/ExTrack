@@ -10,9 +10,10 @@ require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/env.php';
 
 // Function untuk kirim verification email
-function send_verification_email($to_email, $username, $verification_token) {
+function send_verification_email($to_email, $username, $verification_token)
+{
     $mail = new PHPMailer(true);
-    
+
     try {
         // SMTP Configuration from .env
         $mail->isSMTP();
@@ -22,18 +23,18 @@ function send_verification_email($to_email, $username, $verification_token) {
         $mail->Password = env('MAIL_PASSWORD');
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = env('MAIL_PORT', 587);
-        
+
         // Sender & Recipient
         $mail->setFrom(env('MAIL_FROM_ADDRESS', 'noreply@extrack.com'), env('MAIL_FROM_NAME', 'ExTrack'));
         $mail->addAddress($to_email, $username);
-        
+
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'Verifikasi Email Anda - ExTrack';
-        
-        $app_url = env('APP_URL', 'http://localhost/extrack');
+
+        $app_url = env('APP_URL', 'https//extrack.namaserver.xyz');
         $verification_link = "$app_url/auth/verify-email.php?token=" . $verification_token;
-        
+
         $mail->Body = "
             <!DOCTYPE html>
             <html>
@@ -72,21 +73,21 @@ function send_verification_email($to_email, $username, $verification_token) {
             </body>
             </html>
         ";
-        
+
         $mail->AltBody = "Hi $username,\n\nSilakan verifikasi email Anda dengan klik link ini: $verification_link\n\nLink ini akan kadaluarsa dalam 24 jam.";
-        
+
         $mail->send();
         return ['success' => true, 'message' => 'Email verifikasi berhasil dikirim'];
-        
     } catch (Exception $e) {
         return ['success' => false, 'message' => 'Email gagal dikirim: ' . $mail->ErrorInfo];
     }
 }
 
 // Function untuk kirim password reset email (untuk fitur forgot password nanti)
-function send_password_reset_email($to_email, $username, $reset_token) {
+function send_password_reset_email($to_email, $username, $reset_token)
+{
     $mail = new PHPMailer(true);
-    
+
     try {
         // SMTP Configuration from .env
         $mail->isSMTP();
@@ -96,16 +97,16 @@ function send_password_reset_email($to_email, $username, $reset_token) {
         $mail->Password = env('MAIL_PASSWORD');
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = env('MAIL_PORT', 587);
-        
+
         $mail->setFrom(env('MAIL_FROM_ADDRESS', 'noreply@extrack.com'), env('MAIL_FROM_NAME', 'ExTrack'));
         $mail->addAddress($to_email, $username);
-        
+
         $mail->isHTML(true);
         $mail->Subject = 'Reset Password - ExTrack';
-        
+
         $app_url = env('APP_URL', 'http://localhost/extrack');
         $reset_link = "$app_url/auth/reset-password.php?token=" . $reset_token;
-        
+
         $mail->Body = "
             <h2>Reset Password</h2>
             <p>Hi " . htmlspecialchars($username) . ",</p>
@@ -114,10 +115,9 @@ function send_password_reset_email($to_email, $username, $reset_token) {
             <p>Link ini akan kadaluarsa dalam 1 jam.</p>
             <p>Jika Anda tidak meminta reset password, abaikan email ini.</p>
         ";
-        
+
         $mail->send();
         return ['success' => true, 'message' => 'Email reset password berhasil dikirim'];
-        
     } catch (Exception $e) {
         return ['success' => false, 'message' => 'Email gagal dikirim: ' . $mail->ErrorInfo];
     }
