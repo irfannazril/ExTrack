@@ -96,6 +96,16 @@ try {
 
 } catch (PDOException $e) {
     error_log('Forgot password error: ' . $e->getMessage());
-    set_flash('error', 'Terjadi kesalahan sistem. Silakan coba lagi.');
+    
+    // Tampilkan error lebih spesifik untuk debugging
+    if (strpos($e->getMessage(), 'password_resets') !== false) {
+        set_flash('error', 'Tabel password_resets belum dibuat. Silakan jalankan file database/password_resets_table.sql terlebih dahulu.');
+    } else {
+        set_flash('error', 'Terjadi kesalahan sistem: ' . $e->getMessage());
+    }
+    redirect('../auth/forgot-password.php');
+} catch (Exception $e) {
+    error_log('Forgot password error (general): ' . $e->getMessage());
+    set_flash('error', 'Terjadi kesalahan: ' . $e->getMessage());
     redirect('../auth/forgot-password.php');
 }

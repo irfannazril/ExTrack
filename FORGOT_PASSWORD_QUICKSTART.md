@@ -101,4 +101,11 @@ Contoh password tidak valid:
 
 Fitur forgot password siap digunakan!
 
+## 🔧 Troubleshooting
+
+Jika mengalami masalah, lihat:
+- `TROUBLESHOOTING_FORGOT_PASSWORD.md` - Panduan troubleshooting lengkap
+- `check_forgot_password_setup.php` - Tool untuk cek setup
+- `test_send_email.php` - Tool untuk test kirim email
+
 Untuk dokumentasi lengkap, lihat: `FORGOT_PASSWORD_IMPLEMENTATION.md`

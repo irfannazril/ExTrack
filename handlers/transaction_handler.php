@@ -170,6 +170,26 @@ function handle_edit_transaction() {
         redirect('../pages/transactions.php');
     }
     
+    // Validasi berdasarkan tipe
+    if ($type === 'transfer') {
+        if (!$from_asset_id || !$to_asset_id) {
+            set_flash('error', 'Asset asal dan tujuan wajib dipilih untuk transfer!');
+            redirect('../pages/transactions.php');
+        }
+        
+        if ($from_asset_id === $to_asset_id) {
+            set_flash('error', 'Asset asal dan tujuan tidak boleh sama!');
+            redirect('../pages/transactions.php');
+        }
+        
+        $asset_id = $from_asset_id; // Set asset_id untuk transfer
+    } else {
+        if (!$asset_id) {
+            set_flash('error', 'Asset wajib dipilih!');
+            redirect('../pages/transactions.php');
+        }
+    }
+    
     // Begin transaction
     $conn->beginTransaction();
     
