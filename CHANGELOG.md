@@ -1,5 +1,58 @@
 # Changelog - ExTrack
 
+## Version 2.1.0 - Forgot Password Feature (4 Des 2025)
+
+### 🎉 New Features
+
+#### Forgot Password
+- ✅ Forgot password via email
+- ✅ Password reset with secure token (expires in 1 hour)
+- ✅ Token can only be used once
+- ✅ Rate limiting (max 3 requests per email per hour)
+- ✅ Email template styled with ExTrack theme
+- ✅ Password validation (min 6 char, 1 number, 1 letter)
+- ✅ New password cannot be same as old password
+- ✅ Auto-delete expired tokens
+- ✅ Force logout from all devices after reset
+
+### 📝 Files Created
+
+**Auth Pages:**
+- `auth/forgot-password.php` - Forgot password form
+- `auth/reset-password.php` - Reset password form with token validation
+
+**Handlers:**
+- `handlers/forgot_password_handler.php` - Process forgot password request
+- `handlers/reset_password_handler.php` - Process password reset
+
+**Database:**
+- `database/password_resets_table.sql` - Password resets table
+
+**Documentation:**
+- `FORGOT_PASSWORD_IMPLEMENTATION.md` - Complete implementation guide
+- `FORGOT_PASSWORD_QUICKSTART.md` - Quick start guide
+
+### 🔄 Files Modified
+
+- `config/email.php` - Updated email template for password reset
+- `auth/login.php` - Added "Lupa Password?" link
+- `auth/register.php` - Added password validation hint
+- `handlers/register_handler.php` - Added password validation (1 number + 1 letter)
+- `assets/css/auth.css` - Added forgot-link style
+
+### 🐛 Bug Fixes
+
+- Fixed password validation in register
+- Improved email template consistency
+
+### 📚 Documentation
+
+- Updated README.md with forgot password feature
+- Updated SETUP_GUIDE.md with forgot password setup
+- Added comprehensive forgot password documentation
+
+---
+
 ## Version 2.0.0 - Backend Refactor (25 Nov 2025)
 
 ### 🎉 Major Changes

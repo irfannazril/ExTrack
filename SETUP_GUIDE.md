@@ -80,6 +80,12 @@ Sebelum mulai, pastikan Anda sudah install:
     - Paste di Query tab
     - Klik **Run** (F9)
 
+15. Ulangi untuk file `database/password_resets_table.sql`:
+    - Buka file `database/password_resets_table.sql`
+    - Copy semua isinya
+    - Paste di Query tab
+    - Klik **Run** (F9)
+
 #### Opsi B: Menggunakan phpMyAdmin
 
 1. Buka browser: `http://localhost/phpmyadmin`
@@ -97,6 +103,11 @@ Sebelum mulai, pastikan Anda sudah install:
 11. Ulangi untuk `migration_v2.sql`:
     - Klik tab **Import**
     - Pilih file `migration_v2.sql`
+    - Klik **Go**
+
+12. Ulangi untuk `database/password_resets_table.sql`:
+    - Klik tab **Import**
+    - Pilih file `database/password_resets_table.sql`
     - Klik **Go**
 
 ### Step 4: Konfigurasi Environment (.env)
@@ -121,17 +132,19 @@ Sebelum mulai, pastikan Anda sudah install:
    DB_PASS=your_mysql_password
    ```
 
-### Step 5: Konfigurasi Email (Opsional)
+### Step 5: Konfigurasi Email (WAJIB)
 
-Email verification bersifat **opsional**. Anda bisa skip step ini dan langsung ke Step 6.
+Email verification dan forgot password memerlukan konfigurasi email yang benar.
 
-Jika ingin aktifkan email verification:
-
-1. Buka file `config/email.php`
-2. Ubah konfigurasi:
-   ```php
-   $this->mailer->Username = 'your-email@gmail.com';
-   $this->mailer->Password = 'your-app-password';
+1. Pastikan file `.env` sudah ada konfigurasi email:
+   ```env
+   MAIL_HOST=smtp.gmail.com
+   MAIL_PORT=587
+   MAIL_USERNAME=your-email@gmail.com
+   MAIL_PASSWORD=your-app-password
+   MAIL_FROM_ADDRESS=noreply@extrack.com
+   MAIL_FROM_NAME=ExTrack
+   APP_URL=http://localhost/extrack
    ```
 
 #### Cara Mendapatkan Gmail App Password:
@@ -143,9 +156,9 @@ Jika ingin aktifkan email verification:
 5. Pilih device: **Windows Computer**
 6. Klik **Generate**
 7. Copy 16 digit password (contoh: `abcd efgh ijkl mnop`)
-8. Paste ke `config/email.php` (tanpa spasi):
-   ```php
-   $this->mailer->Password = 'abcdefghijklmnop';
+8. Paste ke `.env` → `MAIL_PASSWORD` (tanpa spasi):
+   ```env
+   MAIL_PASSWORD=abcdefghijklmnop
    ```
 
 ### Step 6: Start Apache & MySQL
@@ -244,7 +257,25 @@ Jika ingin aktifkan email verification:
    - Asset: `Cash`
 7. Klik **Save**
 
-### Step 11: Explore Fitur
+### Step 11: Test Forgot Password (Opsional)
+
+1. Logout dari akun
+2. Di halaman login, klik **"Lupa Password?"**
+3. Masukkan email yang terdaftar
+4. Klik **"Kirim Link Reset"**
+5. Cek inbox email (atau spam folder)
+6. Klik link reset password di email
+7. Masukkan password baru (min 6 char, 1 angka, 1 huruf)
+8. Password baru tidak boleh sama dengan password lama
+9. Klik **"Reset Password"**
+10. Login dengan password baru
+
+**Catatan:**
+- Link reset expired dalam 1 jam
+- Link hanya bisa digunakan 1x
+- Max 3x request per email per jam (rate limiting)
+
+### Step 12: Explore Fitur
 
 1. **Dashboard**: Lihat total balance, last transactions, top expenses
 2. **Transactions**: Filter by type, lihat semua transaksi
@@ -339,14 +370,79 @@ composer install
 2. Buka browser Console (F12) → lihat error
 3. Pastikan internet connect (Highcharts load dari CDN)
 
+## 🔐 Forgot Password - Quick Guide
+
+### Setup (One-time)
+
+1. **Import tabel password_resets** (jika belum):
+   ```sql
+   -- Via HeidiSQL atau phpMyAdmin
+   SOURCE C:/xampp/htdocs/extrack/database/password_resets_table.sql;
+   ```
+
+2. **Pastikan email configuration sudah benar** di `.env`:
+   ```env
+   MAIL_HOST=smtp.gmail.com
+   MAIL_PORT=587
+   MAIL_USERNAME=your-email@gmail.com
+   MAIL_PASSWORD=your-app-password
+   APP_URL=http://localhost/extrack
+   ```
+
+### Usage
+
+1. Buka halaman login
+2. Klik **"Lupa Password?"**
+3. Masukkan email terdaftar
+4. Cek inbox email (atau spam)
+5. Klik link reset password
+6. Masukkan password baru
+7. Login dengan password baru
+
+### Password Requirements
+
+Password harus memenuhi:
+- ✅ Minimal 6 karakter
+- ✅ Minimal 1 angka (0-9)
+- ✅ Minimal 1 huruf (a-z atau A-Z)
+- ✅ Tidak boleh sama dengan password lama
+
+### Security Features
+
+- 🔒 Token expires dalam 1 jam
+- 🔒 Token hanya bisa digunakan 1x
+- 🔒 Rate limiting: max 3 request per jam
+- 🔒 Auto-delete expired tokens
+- 🔒 Force logout dari semua device setelah reset
+
+### Troubleshooting
+
+**Email tidak terkirim?**
+- Cek `.env` sudah benar
+- Cek Gmail App Password (bukan password biasa)
+- Cek spam/junk folder
+- Cek port 587 tidak diblokir
+
+**Token tidak valid?**
+- Pastikan tabel `password_resets` sudah dibuat
+- Cek token belum expired (>1 jam)
+- Cek token belum pernah digunakan
+
+**Rate limiting error?**
+- Tunggu 1 jam dari request terakhir
+- Atau hapus manual dari database
+
+---
+
 ## 📞 Need Help?
 
 Jika masih ada masalah:
 
 1. Cek file `README.md` untuk dokumentasi lengkap
 2. Cek file `CHANGELOG.md` untuk list perubahan
-3. Buka browser Console (F12) untuk lihat JavaScript error
-4. Cek Apache error log di `C:\xampp\apache\logs\error.log`
+3. Cek file `FORGOT_PASSWORD_IMPLEMENTATION.md` untuk detail forgot password
+4. Buka browser Console (F12) untuk lihat JavaScript error
+5. Cek Apache error log di `C:\xampp\apache\logs\error.log`
 
 ## 🎉 Selamat!
 

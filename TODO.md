@@ -5,10 +5,11 @@ Daftar fitur dan improvement yang bisa ditambahkan di masa depan.
 ## 🚀 High Priority
 
 ### Authentication
-- [ ] Forgot Password functionality
-- [ ] Email verification wajib (toggle di settings)
+- [x] ~~Forgot Password functionality~~ ✅ **DONE (v2.1.0)**
+- [x] ~~Email verification wajib~~ ✅ **DONE (v2.0.0)**
 - [ ] 2FA (Two-Factor Authentication)
 - [ ] Social login (Google, Facebook)
+- [ ] Account lockout after failed login attempts
 
 ### Transactions
 - [ ] Recurring transactions (bulanan, mingguan)

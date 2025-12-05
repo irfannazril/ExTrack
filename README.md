@@ -6,7 +6,8 @@ Aplikasi pelacak pengeluaran berbasis web menggunakan PHP 8.2 native, Bootstrap,
 
 - ✅ **Authentication System**
   - Login & Register
-  - Email Verification (opsional)
+  - Email Verification (wajib)
+  - Forgot Password via Email
   - Remember Me (30 hari)
   - Session Management (24 jam)
   - Logout dengan konfirmasi
@@ -73,11 +74,13 @@ composer install
 2. Create database `extrack`
 3. Import file `extrack.sql`
 4. Jalankan migration `migration_v2.sql`
+5. Jalankan migration `database/password_resets_table.sql`
 
 ```sql
 -- Di HeidiSQL, jalankan query ini:
 SOURCE C:/xampp/htdocs/extrack/extrack.sql;
 SOURCE C:/xampp/htdocs/extrack/migration_v2.sql;
+SOURCE C:/xampp/htdocs/extrack/database/password_resets_table.sql;
 ```
 
 ### 4. Konfigurasi Environment (.env)
@@ -165,7 +168,7 @@ extrack/
 
 Setelah register, gunakan akun yang Anda buat.
 
-**Catatan:** Email verification bersifat opsional. Anda bisa langsung login tanpa verifikasi email.
+**Catatan:** Email verification bersifat **wajib**. Anda harus verify email sebelum bisa login. Jika lupa password, gunakan fitur "Lupa Password?" di halaman login.
 
 ## 📝 Cara Penggunaan
 
@@ -260,11 +263,13 @@ $expire = time() + (30 * 24 * 60 * 60); // 30 hari
 - Cek file size < 2MB
 - Cek format JPG/PNG/GIF
 
-### Email verification tidak terkirim
+### Email verification/reset password tidak terkirim
 
-- Cek konfigurasi di `config/email.php`
-- Pastikan App Password Gmail benar
-- Email verification bersifat opsional, bisa skip
+- Cek konfigurasi di `.env` (MAIL_USERNAME, MAIL_PASSWORD)
+- Pastikan App Password Gmail benar (bukan password biasa)
+- Cek spam/junk folder
+- Gunakan "Kirim Ulang Email Verifikasi" di halaman login
+- Untuk forgot password, cek rate limiting (max 3x per jam)
 
 ### Session expired terus
 
@@ -285,6 +290,9 @@ $expire = time() + (30 * 24 * 60 * 60); // 30 hari
 ## 🔒 Security Features
 
 - Password hashing (bcrypt)
+- Password validation (min 6 char, 1 angka, 1 huruf)
+- Password reset via email (token expires 1 hour)
+- Rate limiting for password reset (max 3x per hour)
 - SQL injection protection (PDO prepared statements)
 - XSS protection (htmlspecialchars)
 - CSRF protection (session validation)
