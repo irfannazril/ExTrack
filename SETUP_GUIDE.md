@@ -7,11 +7,13 @@ Panduan lengkap setup ExTrack untuk pemula.
 Sebelum mulai, pastikan Anda sudah install:
 
 1. **XAMPP** (sudah terinstall di komputer Anda)
+
    - PHP 8.2+
    - MySQL/MariaDB
    - Apache
 
 2. **Composer** (untuk install dependencies)
+
    - Download: https://getcomposer.org/download/
    - Install dan pastikan bisa diakses via command line
 
@@ -37,18 +39,19 @@ Sebelum mulai, pastikan Anda sudah install:
    ├── index.php
    ├── composer.json
    ├── extrack.sql
-   └── migration_v2.sql
    ```
 
 ### Step 2: Install Dependencies
 
 1. Buka **Command Prompt** atau **PowerShell**
 2. Masuk ke folder project:
+
    ```bash
    cd C:\xampp\htdocs\extrack
    ```
 
 3. Install dependencies dengan Composer:
+
    ```bash
    composer install
    ```
@@ -66,25 +69,12 @@ Sebelum mulai, pastikan Anda sudah install:
 5. Charset: `utf8mb4`
 6. Collation: `utf8mb4_general_ci`
 7. Klik **OK**
-
 8. Klik database `extrack` yang baru dibuat
 9. Klik tab **Query**
 10. Buka file `extrack.sql` dengan text editor
 11. Copy semua isinya
 12. Paste di Query tab HeidiSQL
 13. Klik **Run** (F9)
-
-14. Ulangi untuk file `migration_v2.sql`:
-    - Buka file `migration_v2.sql`
-    - Copy semua isinya
-    - Paste di Query tab
-    - Klik **Run** (F9)
-
-15. Ulangi untuk file `database/password_resets_table.sql`:
-    - Buka file `database/password_resets_table.sql`
-    - Copy semua isinya
-    - Paste di Query tab
-    - Klik **Run** (F9)
 
 #### Opsi B: Menggunakan phpMyAdmin
 
@@ -93,26 +83,16 @@ Sebelum mulai, pastikan Anda sudah install:
 3. Nama database: `extrack`
 4. Collation: `utf8mb4_general_ci`
 5. Klik **Create**
-
 6. Klik database `extrack` di sidebar
 7. Klik tab **Import**
 8. Klik **Choose File**
 9. Pilih file `extrack.sql`
 10. Klik **Go**
 
-11. Ulangi untuk `migration_v2.sql`:
-    - Klik tab **Import**
-    - Pilih file `migration_v2.sql`
-    - Klik **Go**
-
-12. Ulangi untuk `database/password_resets_table.sql`:
-    - Klik tab **Import**
-    - Pilih file `database/password_resets_table.sql`
-    - Klik **Go**
-
 ### Step 4: Konfigurasi Environment (.env)
 
 1. Copy file `.env.example` menjadi `.env`:
+
    ```bash
    copy .env.example .env
    ```
@@ -120,6 +100,7 @@ Sebelum mulai, pastikan Anda sudah install:
 2. Buka file `.env` dengan text editor
 
 3. Sesuaikan konfigurasi database (jika perlu):
+
    ```env
    DB_HOST=localhost
    DB_NAME=extrack
@@ -178,6 +159,7 @@ Email verification dan forgot password memerlukan konfigurasi email yang benar.
 ### Step 8: Register Akun Pertama
 
 1. Isi form registrasi:
+
    - Username: `admin` (atau terserah)
    - Email: `admin@extrack.com` (atau email Anda)
    - Password: `password123` (minimal 6 karakter)
@@ -193,7 +175,6 @@ Email verification dan forgot password memerlukan konfigurasi email yang benar.
    - Buka inbox (atau spam folder)
    - Cari email dari ExTrack
    - Klik link "Verifikasi Email"
-   
 6. **Jika email tidak masuk:**
    - Cek spam/junk folder
    - Klik "Kirim Ulang Email Verifikasi" di halaman login
@@ -271,6 +252,7 @@ Email verification dan forgot password memerlukan konfigurasi email yang benar.
 10. Login dengan password baru
 
 **Catatan:**
+
 - Link reset expired dalam 1 jam
 - Link hanya bisa digunakan 1x
 - Max 3x request per email per jam (rate limiting)
@@ -304,11 +286,13 @@ Pastikan semua ini berfungsi:
 ### Error: "Database connection failed"
 
 **Penyebab:**
+
 - MySQL belum running
 - Database `extrack` belum dibuat
 - Credentials salah
 
 **Solusi:**
+
 1. Cek MySQL running di XAMPP
 2. Cek database `extrack` ada di HeidiSQL/phpMyAdmin
 3. Cek `config/database.php` credentials benar
@@ -316,9 +300,11 @@ Pastikan semua ini berfungsi:
 ### Error: "Class 'PHPMailer' not found"
 
 **Penyebab:**
+
 - Composer dependencies belum diinstall
 
 **Solusi:**
+
 ```bash
 cd C:\xampp\htdocs\extrack
 composer install
@@ -327,9 +313,11 @@ composer install
 ### Error: "Failed to upload photo"
 
 **Penyebab:**
+
 - Folder `uploads/profiles/` tidak ada atau tidak writable
 
 **Solusi:**
+
 1. Pastikan folder `uploads/profiles/` ada
 2. Klik kanan folder → Properties → Security
 3. Pastikan user Anda punya Write permission
@@ -337,9 +325,11 @@ composer install
 ### Halaman blank/error 500
 
 **Penyebab:**
+
 - PHP error
 
 **Solusi:**
+
 1. Buka `C:\xampp\php\php.ini`
 2. Cari `display_errors = Off`
 3. Ubah jadi `display_errors = On`
@@ -349,9 +339,11 @@ composer install
 ### Session expired terus
 
 **Penyebab:**
+
 - Session timeout terlalu pendek
 
 **Solusi:**
+
 1. Buka `includes/session.php`
 2. Ubah:
    ```php
@@ -362,10 +354,12 @@ composer install
 ### Chart tidak muncul
 
 **Penyebab:**
+
 - Belum ada data transaksi
 - JavaScript error
 
 **Solusi:**
+
 1. Tambah beberapa transaksi dulu
 2. Buka browser Console (F12) → lihat error
 3. Pastikan internet connect (Highcharts load dari CDN)
@@ -375,6 +369,7 @@ composer install
 ### Setup (One-time)
 
 1. **Import tabel password_resets** (jika belum):
+
    ```sql
    -- Via HeidiSQL atau phpMyAdmin
    SOURCE C:/xampp/htdocs/extrack/database/password_resets_table.sql;
@@ -402,6 +397,7 @@ composer install
 ### Password Requirements
 
 Password harus memenuhi:
+
 - ✅ Minimal 6 karakter
 - ✅ Minimal 1 angka (0-9)
 - ✅ Minimal 1 huruf (a-z atau A-Z)
@@ -418,17 +414,20 @@ Password harus memenuhi:
 ### Troubleshooting
 
 **Email tidak terkirim?**
+
 - Cek `.env` sudah benar
 - Cek Gmail App Password (bukan password biasa)
 - Cek spam/junk folder
 - Cek port 587 tidak diblokir
 
 **Token tidak valid?**
+
 - Pastikan tabel `password_resets` sudah dibuat
 - Cek token belum expired (>1 jam)
 - Cek token belum pernah digunakan
 
 **Rate limiting error?**
+
 - Tunggu 1 jam dari request terakhir
 - Atau hapus manual dari database
 
